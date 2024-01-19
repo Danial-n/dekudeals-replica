@@ -17,7 +17,7 @@ const Content = () => {
   }
   const path = usePathname();
 
-  // hide "view all box in /content"
+  // hide "view all" box in /content
   const [shouldHideDiv, setShouldHideDiv] = useState(false);
   useEffect(() => {
     const currentHref = window.location.href;
@@ -29,7 +29,7 @@ const Content = () => {
     <div
       className={`${
         layoutViewStore.isLayout
-          ? 'w-full grid grid-cols-2 gap-x-5 gap-y-10 pb-8'
+          ? 'w-full grid grid-cols-2 gap-x-5 gap-y-10 pb-8 md:grid-cols-6'
           : 'pb-8 space-y-5 '
       }`}
     >
@@ -61,7 +61,7 @@ const Content = () => {
 
       {/* view all box */}
       {!shouldHideDiv && (
-        <div className='flex justify-center items-center size-[170px] px-2 rounded-lg shadow-lg border-2 border-gray-300'>
+        <div className='flex justify-center items-center size-[170px] md:size-[130px] px-2 rounded-lg shadow-lg border-2 border-gray-300 '>
           <Link href='/content'>
             View all current deals <ChevronsRight />
           </Link>

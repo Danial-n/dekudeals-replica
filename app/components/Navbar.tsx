@@ -43,19 +43,73 @@ const Navbar = observer(() => {
 
   // COUNTRY LIST
   const ctryList = ['Brunei', 'Japan', 'United State'];
-  const ctry = ctryList.map((word, index) => (
-    <DropdownMenuItem key={index}>{word}</DropdownMenuItem>
+  const ctry = ctryList.map((country, index) => (
+    <DropdownMenuItem key={index}>{country}</DropdownMenuItem>
   ));
 
   return (
     <div className='w-screen flex flex-col'>
       {/* NAV 1 */}
       <nav className='flex flex-row bg-neutral-300 dark:bg-neutral-800 h-[50px] items-center justify-between px-3'>
-        <ul>
+        <ul className='flex space-x-5 items-center'>
           <li>
             <Link href='/'>
               <Image src={logo} alt='logo' className='h-10 w-24  ' />
             </Link>
+          </li>
+
+          {/* HIDDEN IN MOBILE */}
+          <li data-dropdown-toggle='dropdown' className='hidden md:block'>
+            <DropdownMenu>
+              <DropdownMenuTrigger className='flex flex-row space-x-1'>
+                <Globe2 />
+                <p>BN</p>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>{ctry}</DropdownMenuContent>
+            </DropdownMenu>
+          </li>
+          {/* HIDDEN IN MOBILE */}
+          <li className='hidden md:block'>
+            <Link href='/consoles' className='flex'>
+              <Image
+                src='/assets/icons8-n-16.png'
+                width={24}
+                height={24}
+                alt='img'
+                className={`${
+                  consoleStore.isNintendo
+                    ? 'opacity-100 dark:-white'
+                    : 'opacity-30 dark:fill-white'
+                }`}
+              />
+              <Image
+                src='/assets/icons8-p-16.png'
+                width={24}
+                height={24}
+                alt='img'
+                className={`${
+                  consoleStore.isPlay ? 'opacity-100' : 'opacity-30'
+                }`}
+              />
+              <Image
+                src='/assets/icons8-x-16.png'
+                width={24}
+                height={24}
+                alt='img'
+                className={`${
+                  consoleStore.isXbox ? 'opacity-100' : 'opacity-30'
+                }`}
+              />
+            </Link>
+          </li>
+          {/* HIDDEN IN MOBILE */}
+          <li className='hidden md:block'>
+            <SunMoon
+              className={`bg-transparent dark:bg-[#212933]`}
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            >
+              {theme === 'light' ? 'Dark' : 'Light'}
+            </SunMoon>
           </li>
         </ul>
         <ul className='flex flex-row space-x-3'>
@@ -71,7 +125,9 @@ const Navbar = observer(() => {
       </nav>
 
       {/* NAV 2 */}
-      <nav className='flex flex-row bg-neutral-200 dark:bg-neutral-900 items-center justify-between space-x-5 h-[50px] px-3'>
+      {/* HIDDEN IN DESKTOP */}
+      <nav className='md:hidden flex flex-row bg-neutral-200 dark:bg-neutral-900 items-center justify-between space-x-5 h-[50px] px-3'>
+        {/* NAV LEFT */}
         <ul className='flex flex-row space-x-3'>
           <li data-dropdown-toggle='dropdown'>
             <DropdownMenu>
@@ -116,6 +172,7 @@ const Navbar = observer(() => {
             </Link>
           </li>
         </ul>
+        {/* NAV RIGHT */}
         <ul>
           <li>
             <SunMoon
@@ -177,7 +234,7 @@ const Navbar = observer(() => {
               className='border-solid border-2  border-sky-500'
             />
             <button className='bg-sky-500 w-12 rounded-e-md flex justify-center items-center'>
-              <ChevronsRight />
+              <ChevronsRight color='white' />
             </button>
           </form>
         </CollapsibleContent>

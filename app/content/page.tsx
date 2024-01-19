@@ -38,14 +38,14 @@ const content = () => {
 
   return (
     <div className='px-5 py-3 space-y-5 pb-12'>
-      {/* HEADER */}
-      <div>
-        <p className='text-4xl font-light'>Recent Price Drops</p>
-        <p>The freshest discounts</p>
-      </div>
-
-      {/* CRITERIA MENU */}
       <Collapsible className='space-y-3'>
+        {/* HEADER */}
+        <div>
+          <p className='text-4xl font-light'>Recent Price Drops</p>
+          <p>The freshest discounts</p>
+        </div>
+
+        {/* CRITERIA MENU */}
         <div className='flex flex-col items-end space-y-2'>
           {/* SORT BY */}
           <DropdownMenu>
