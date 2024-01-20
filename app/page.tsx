@@ -6,7 +6,7 @@ import { ChevronsRight } from 'lucide-react';
 
 export default function Home() {
   return (
-    <main className='flex flex-col pb-10'>
+    <div className='flex flex-col pb-10 2xl:w-[1080px]'>
       <div className='p-3'>
         <div className='bg-neutral-300 dark:bg-neutral-800 rounded-sm p-6 space-y-3'>
           <p className='text-2xl'>Welcome to Deku Deals!</p>
@@ -52,6 +52,6 @@ export default function Home() {
         </div>
         <Content />
       </div>
-    </main>
+    </div>
   );
 }

@@ -20,10 +20,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        {' '}
         <Darkmode attribute='class' defaultTheme='system' enableSystem>
           <Navbar />
-          {children}
+          <div className='flex justify-center'>
+            <div className='2xl:flex 2xl:justify-center 2xl:items-center 2xl:w-[1080px]'>
+              {children}
+            </div>
+          </div>
           <Footer />
         </Darkmode>
       </body>

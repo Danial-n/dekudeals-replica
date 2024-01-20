@@ -50,79 +50,84 @@ const Navbar = observer(() => {
   return (
     <div className='w-screen flex flex-col'>
       {/* NAV 1 */}
-      <nav className='flex flex-row bg-neutral-300 dark:bg-neutral-800 h-[50px] items-center justify-between px-3'>
-        <ul className='flex space-x-5 items-center'>
-          <li>
-            <Link href='/'>
-              <Image src={logo} alt='logo' className='h-10 w-24  ' />
-            </Link>
-          </li>
+      <div className='bg-neutral-300 dark:bg-neutral-800 2xl:flex 2xl:justify-center'>
+        <nav className='flex flex-row h-[50px] items-center justify-between px-3 2xl:w-[1080px]'>
+          {/* NAV LEFT */}
+          <ul className='flex space-x-5 items-center'>
+            <li>
+              <Link href='/'>
+                <Image src={logo} alt='logo' className='h-10 w-24  ' />
+              </Link>
+            </li>
 
-          {/* HIDDEN IN MOBILE */}
-          <li data-dropdown-toggle='dropdown' className='hidden md:block'>
-            <DropdownMenu>
-              <DropdownMenuTrigger className='flex flex-row space-x-1'>
-                <Globe2 />
-                <p>BN</p>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>{ctry}</DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-          {/* HIDDEN IN MOBILE */}
-          <li className='hidden md:block'>
-            <Link href='/consoles' className='flex'>
-              <Image
-                src='/assets/icons8-n-16.png'
-                width={24}
-                height={24}
-                alt='img'
-                className={`${
-                  consoleStore.isNintendo
-                    ? 'opacity-100 dark:-white'
-                    : 'opacity-30 dark:fill-white'
-                }`}
-              />
-              <Image
-                src='/assets/icons8-p-16.png'
-                width={24}
-                height={24}
-                alt='img'
-                className={`${
-                  consoleStore.isPlay ? 'opacity-100' : 'opacity-30'
-                }`}
-              />
-              <Image
-                src='/assets/icons8-x-16.png'
-                width={24}
-                height={24}
-                alt='img'
-                className={`${
-                  consoleStore.isXbox ? 'opacity-100' : 'opacity-30'
-                }`}
-              />
+            {/* HIDDEN IN MOBILE */}
+            <li data-dropdown-toggle='dropdown' className='hidden md:block'>
+              <DropdownMenu>
+                <DropdownMenuTrigger className='flex flex-row space-x-1'>
+                  <Globe2 />
+                  <p>BN</p>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>{ctry}</DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+            {/* HIDDEN IN MOBILE */}
+            <li className='hidden md:block'>
+              <Link href='/consoles' className='flex'>
+                <Image
+                  src='/assets/icons8-n-16.png'
+                  width={24}
+                  height={24}
+                  alt='img'
+                  className={`${
+                    consoleStore.isNintendo
+                      ? 'opacity-100 dark:-white'
+                      : 'opacity-30 dark:fill-white'
+                  }`}
+                />
+                <Image
+                  src='/assets/icons8-p-16.png'
+                  width={24}
+                  height={24}
+                  alt='img'
+                  className={`${
+                    consoleStore.isPlay ? 'opacity-100' : 'opacity-30'
+                  }`}
+                />
+                <Image
+                  src='/assets/icons8-x-16.png'
+                  width={24}
+                  height={24}
+                  alt='img'
+                  className={`${
+                    consoleStore.isXbox ? 'opacity-100' : 'opacity-30'
+                  }`}
+                />
+              </Link>
+            </li>
+            {/* HIDDEN IN MOBILE */}
+            <li className='hidden md:block'>
+              <SunMoon
+                className={`bg-transparent dark:bg-[#212933]`}
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              >
+                {theme === 'light' ? 'Dark' : 'Light'}
+              </SunMoon>
+            </li>
+          </ul>
+
+          {/* NAV RIGHT */}
+          <ul className='flex flex-row space-x-3'>
+            <li>
+              <Link href='/signup' className='text-black dark:text-white'>
+                Sign Up
+              </Link>
+            </li>
+            <Link href='/login' className='text-black dark:text-white'>
+              Log in
             </Link>
-          </li>
-          {/* HIDDEN IN MOBILE */}
-          <li className='hidden md:block'>
-            <SunMoon
-              className={`bg-transparent dark:bg-[#212933]`}
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              {theme === 'light' ? 'Dark' : 'Light'}
-            </SunMoon>
-          </li>
-        </ul>
-        <ul className='flex flex-row space-x-3'>
-          <li>
-            <Link href='/signup' className='text-black dark:text-white'>
-              Sign Up
-            </Link>
-          </li>
-          <Link href='/login' className='text-black dark:text-white'>
-            Log in
-          </Link>
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      </div>
 
       {/* NAV 2 */}
       {/* HIDDEN IN DESKTOP */}
@@ -186,8 +191,9 @@ const Navbar = observer(() => {
       </nav>
 
       {/* NAV 3 */}
-      <Collapsible>
-        <nav className='flex flex-row bg-neutral-100 dark:bg-neutral-950 items-center justify-between space-x-5 h-[50px] px-3'>
+      <Collapsible className='bg-neutral-100 dark:bg-neutral-950 2xl:flex 2xl:justify-center'>
+        <nav className='flex flex-row items-center justify-between space-x-5 h-[50px] px-3 2xl:w-[1080px]'>
+          {/* NAV LEFT */}
           <ul className='flex flex-row space-x-3'>
             <li>
               <DropdownMenu>
@@ -218,6 +224,8 @@ const Navbar = observer(() => {
               </DropdownMenu>
             </li>
           </ul>
+
+          {/* NAV RIGHT */}
           <ul>
             <li>
               <CollapsibleTrigger className='flex flex-row'>
@@ -226,6 +234,8 @@ const Navbar = observer(() => {
             </li>
           </ul>
         </nav>
+
+        {/* SEARCH BAR */}
         <CollapsibleContent>
           <form className='flex flex-row px-2 py-1 '>
             <Input

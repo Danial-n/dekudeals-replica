@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <div className='bg-neutral-200 dark:bg-neutral-800 px-3 py-5 pb-32 md:flex md:justify-center'>
-      <div className='flex flex-col space-y-3  text-sm font-light leading-relaxed md:w-10/12'>
+      <div className='flex flex-col space-y-3 text-sm font-light leading-relaxed md:w-10/12 2xl:w-[1080px]'>
         <div>
           <p>
             Deku Deals is made by <Link href='/'>Team Deku</Link>

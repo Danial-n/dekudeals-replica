@@ -34,8 +34,8 @@ const Content = () => {
       }`}
     >
       {/* game box */}
-      {gameData.games.map((game) => (
-        <div>
+      {gameData.games.map((game, index) => (
+        <div key={index}>
           <Link
             href='/game'
             className={`${
@@ -61,11 +61,11 @@ const Content = () => {
 
       {/* view all box */}
       {!shouldHideDiv && (
-        <div className='flex justify-center items-center size-[170px] md:size-[130px] px-2 rounded-lg shadow-lg border-2 border-gray-300 '>
-          <Link href='/content'>
-            View all current deals <ChevronsRight />
-          </Link>
-        </div>
+        <Link href='/content'>
+          <div className='flex justify-center items-center text-center font-bold resize-none size-[170px] px-6 rounded-lg shadow-lg border-2 border-gray-300 '>
+            View all current deals »
+          </div>
+        </Link>
       )}
     </div>
   );
