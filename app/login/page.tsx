@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const login = () => {
   return (
-    <div className='px-5 py-3 space-y-5 pb-16'>
+    <div className='px-5 py-3 space-y-5 pb-16 md:w-2/4'>
       <div className='space-y-3'>
         <h1>Log in</h1>
         <p>
@@ -11,7 +11,7 @@ const login = () => {
         </p>
       </div>
       <div className='space-y-3'>
-        <form className='space-y-5'>
+        <form className='space-y-5 '>
           <div className='flex flex-col space-y-2'>
             <label>Email</label>
             <input
