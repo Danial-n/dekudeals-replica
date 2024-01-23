@@ -161,7 +161,7 @@ const content = () => {
           </div>
         </div>
 
-        {/* FILTER CONTENT */}
+        {/* FILTER CONTENT(MOBILE) */}
         <CollapsibleContent className='flex flex-col space-y-2 w-full'>
           <div className='flex flex-col border border-neutral-200 rounded-md'>
             <div className='bg-neutral-100 h-10 flex items-center p-3'>
@@ -205,10 +205,10 @@ const content = () => {
       </Collapsible>
 
       <div className='flex space-x-5'>
-        {/* FILTER CONTENT */}
+        {/* FILTER CONTENT(DESKTOP) */}
         <div className='hidden md:flex flex-col space-y-2 w-1/5'>
-          <div className='flex flex-col border border-neutral-200 rounded-md'>
-            <div className='bg-neutral-100 h-10 flex items-center p-3'>
+          <div className='flex flex-col border dark:border-neutral-500 border-neutral-200 rounded-md'>
+            <div className='bg-neutral-100 dark:bg-neutral-500 h-10 flex items-center p-3'>
               Discount
             </div>
             <div className='flex flex-col p-3 space-y-1'>
