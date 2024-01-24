@@ -43,7 +43,7 @@ const content = () => {
         <div className='md:flex md:flex-row md:justify-between'>
           {/* HEADER LEFT */}
           <div className='pt-5'>
-            <p className='text-4xl font-light'>Recent Price Drops</p>
+            <h2 className='text-4xl font-light'>Recent Price Drops</h2>
             <p>The freshest discounts</p>
           </div>
 
@@ -87,20 +87,6 @@ const content = () => {
                   <Grid3X3 />
                 </button>
               </div>
-            </div>
-            {/* PAGINATION */}
-            <div className='flex flex-col items-end space-y-3'>
-              <nav className='flex flex-row items-center space-x-3'>
-                <p>1-36 of 240</p>
-                <ul className='flex flex-row border border-neutral-200 rounded-md'>
-                  <li className='border-l px-3 py-2'>{'<'}</li>
-                  <li className='border-l px-3 py-2'>1</li>
-                  <li className='border-l px-3 py-2'>2</li>
-                  <li className='border-l px-3 py-2'>...</li>
-                  <li className='border-l px-3 py-2'>9</li>
-                  <li className='border-l px-3 py-2'>{'>'}</li>
-                </ul>
-              </nav>
             </div>
           </div>
         </div>
@@ -163,19 +149,19 @@ const content = () => {
 
         {/* FILTER CONTENT(MOBILE) */}
         <CollapsibleContent className='flex flex-col space-y-2 w-full'>
-          <div className='flex flex-col border border-neutral-200 rounded-md'>
-            <div className='bg-neutral-100 h-10 flex items-center p-3'>
-              Discount
+          <div className='flex flex-col border dark:border-neutral-500 border-neutral-200 rounded-md'>
+            <div className='bg-neutral-100 dark:bg-neutral-500 h-10 flex items-center p-3'>
+              Type
             </div>
             <div className='flex flex-col p-3 space-y-1'>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
+                <p>Game </p>
                 <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
-                  100
+                  233
                 </p>
               </div>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
+                <p>DLC </p>
                 <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
                   100
                 </p>
@@ -188,16 +174,33 @@ const content = () => {
             </div>
             <div className='flex flex-col p-3 space-y-1'>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
-                <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
-                  100
-                </p>
+                <input
+                  type='text'
+                  className='w-10 border-2'
+                  placeholder='min'
+                />
+                <p>to</p>
+                <input
+                  type='text'
+                  className='w-10 border-2'
+                  placeholder='max'
+                />
+                <button className='border-2 p-1'>{'>'}</button>
+              </div>
+            </div>
+          </div>
+          <div className='flex flex-col border border-neutral-200 rounded-md'>
+            <div className='bg-neutral-100 h-10 flex items-center p-3'>
+              Exclude
+            </div>
+            <div className='flex flex-col p-3 space-y-1'>
+              <div className='flex flex-row justify-between'>
+                <input type='checkbox' />
+                <p>Items in your collection</p>
               </div>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
-                <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
-                  100
-                </p>
+                <input type='checkbox' />
+                <p>Items in your wishlist</p>
               </div>
             </div>
           </div>
@@ -207,41 +210,63 @@ const content = () => {
       <div className='flex space-x-5'>
         {/* FILTER CONTENT(DESKTOP) */}
         <div className='hidden md:flex flex-col space-y-2 w-1/5'>
+          {/* TYPE SECT */}
           <div className='flex flex-col border dark:border-neutral-500 border-neutral-200 rounded-md'>
             <div className='bg-neutral-100 dark:bg-neutral-500 h-10 flex items-center p-3'>
-              Discount
+              Type
             </div>
             <div className='flex flex-col p-3 space-y-1'>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
+                <p>Game </p>
                 <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
-                  100
+                  233
                 </p>
               </div>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
+                <p>DLC </p>
                 <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
                   100
                 </p>
               </div>
             </div>
           </div>
-          <div className='flex flex-col border border-neutral-200 rounded-md'>
-            <div className='bg-neutral-100 h-10 flex items-center p-3'>
+          {/* PRICE SECT */}
+          <div className='flex flex-col border dark:border-neutral-500 border-neutral-200 rounded-md'>
+            <div className='bg-neutral-100 dark:bg-neutral-500 h-10 flex items-center p-3'>
               Price
             </div>
             <div className='flex flex-col p-3 space-y-1'>
               <div className='flex flex-row justify-between'>
-                <p>Currently </p>
-                <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
-                  100
-                </p>
+                <input
+                  type='text'
+                  className='w-14 h-8 border-2 rounded-sm flex items-center'
+                  placeholder='min'
+                />
+                <p>to</p>
+                <input
+                  type='text'
+                  className='w-14 h-8 border-2 rounded-sm flex items-center'
+                  placeholder='max'
+                />
+                <button className='border-2 rounded-sm w-7 h-8 flex items-center justify-center'>
+                  {'>'}
+                </button>
               </div>
-              <div className='flex flex-row justify-between'>
-                <p>Currently </p>
-                <p className='font-bold text-xs bg-neutral-300 rounded-md flex items-center p-1'>
-                  100
-                </p>
+            </div>
+          </div>
+          {/* EXCLUDE SECT */}
+          <div className='flex flex-col border dark:border-neutral-500 border-neutral-200 rounded-md'>
+            <div className='bg-neutral-100 dark:bg-neutral-500 h-10 flex items-center p-3'>
+              Exclude
+            </div>
+            <div className='flex flex-col p-3 space-y-1'>
+              <div className='flex flex-row space-x-3'>
+                <input type='checkbox' />
+                <p>Items in your collection</p>
+              </div>
+              <div className='flex flex-row space-x-3'>
+                <input type='checkbox' />
+                <p>Items in your wishlist</p>
               </div>
             </div>
           </div>
@@ -249,22 +274,6 @@ const content = () => {
 
         {/* GAME LIST */}
         <Content />
-      </div>
-
-      {/* PAGINATION */}
-      <div className='flex flex-col items-end space-y-3'>
-        <nav className='flex flex-row items-center space-x-3'>
-          <p>1-36 of 240</p>
-          <ul className='flex flex-row border border-neutral-200 rounded-md'>
-            <li className='border-l px-3 py-2'>{'<'}</li>
-            <li className='border-l px-3 py-2'>1</li>
-            <li className='border-l px-3 py-2'>2</li>
-            <li className='border-l px-3 py-2'>...</li>
-            <li className='border-l px-3 py-2'>9</li>
-            <li className='border-l px-3 py-2'>{'>'}</li>
-          </ul>
-        </nav>
-        <Link href='/'>Show all on one page</Link>
       </div>
     </div>
   );

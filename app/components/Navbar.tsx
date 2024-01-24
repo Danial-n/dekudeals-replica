@@ -51,12 +51,12 @@ const Navbar = observer(() => {
     <div className='w-screen flex flex-col'>
       {/* NAV 1 */}
       <div className='bg-neutral-300 dark:bg-neutral-800 2xl:flex 2xl:justify-center'>
-        <nav className='flex flex-row h-[50px] items-center justify-between px-3 2xl:w-[1080px]'>
+        <nav className='flex flex-row h-[50px] items-center justify-between px-3 2xl:w-[1340px]'>
           {/* NAV LEFT */}
           <ul className='flex items-center h-full'>
             <li className='pr-5'>
               <Link href='/'>
-                <Image src={logo} alt='logo' className='h-10 w-24' />
+                <Image src={logo} alt='logo' className='h-12 w-32' />
               </Link>
             </li>
 
@@ -203,36 +203,94 @@ const Navbar = observer(() => {
         </ul>
       </nav>
 
-      {/* NAV 3 */}
+      {/* NAV 3(MOBILE) & NAV 2(DESKTOP) */}
       <Collapsible className='bg-neutral-100 dark:bg-neutral-950 2xl:flex 2xl:justify-center'>
-        <nav className='flex flex-row items-center justify-between space-x-5 h-[50px] px-3 2xl:w-[1080px]'>
+        <nav className='flex flex-row items-center justify-between space-x-5 h-[50px] px-3 2xl:w-[1340px]'>
           {/* NAV LEFT */}
           <ul className='flex flex-row h-full'>
+            {/* Browse */}
             <li className='h-full'>
               <DropdownMenu>
                 <DropdownMenuTrigger className='flex flex-row hover:bg-zinc-700 hover:text-white h-full items-center px-3'>
                   Browse <ChevronDown />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem>Games</DropdownMenuItem>
-                  <DropdownMenuItem>DLC</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      Games
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      DLC
+                    </Link>
+                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Hottest Deal</DropdownMenuItem>
-                  <DropdownMenuItem>Recent Price Drop</DropdownMenuItem>
-                  <DropdownMenuItem>eShop Sale</DropdownMenuItem>
-                  <DropdownMenuItem>Subscription</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      Hottest Deal
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      Recent Price Drop
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      eShop Sale
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      Subscription
+                    </Link>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
 
+            {/* My List */}
             <li className=''>
               <DropdownMenu>
                 <DropdownMenuTrigger className='flex flex-row hover:bg-zinc-700 hover:text-white h-full items-center px-3'>
                   My Lists <ChevronDown />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem>Wishlist</DropdownMenuItem>
-                  <DropdownMenuItem>Collection</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      Wishlist
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href='/content'
+                      className='text-black dark:text-white'
+                    >
+                      Collection
+                    </Link>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>

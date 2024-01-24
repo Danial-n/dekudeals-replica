@@ -66,7 +66,7 @@ const signup = () => {
               </span>
             </label>
             <input
-              type='text'
+              type='password'
               name='password'
               className='border border-neutral-200 rounded-md h-10 pl-3'
             />
