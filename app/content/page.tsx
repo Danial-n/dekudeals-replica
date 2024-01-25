@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp, Grid3X3, Rows3 } from 'lucide-react';
 import layoutViewStore from '../data/layoutViewStore';
+import { list } from 'postcss';
 
 const Page = () => {
   // Content organise button
@@ -33,8 +34,14 @@ const Page = () => {
 
   // sort by list
   const sortWords = ['Name', 'Price', 'Discount'];
+  const [selectedSort, setSelectedSort] = useState(sortWords[0]);
+  const handleSortSelect = (word: React.SetStateAction<string>) => {
+    setSelectedSort(word);
+  };
   const sortBy = sortWords.map((word, index) => (
-    <DropdownMenuItem key={index}>{word}</DropdownMenuItem>
+    <DropdownMenuItem key={index} onClick={() => handleSortSelect(word)}>
+      {word}
+    </DropdownMenuItem>
   ));
 
   return (
@@ -54,7 +61,7 @@ const Page = () => {
               {/* SORT BY */}
               <DropdownMenu>
                 <DropdownMenuTrigger className='border border-neutral-200 rounded-md w-44 h-9 flex justify-center items-center text-sm'>
-                  Sort by: Sale start time
+                  Sort by: {selectedSort}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>{sortBy}</DropdownMenuContent>
               </DropdownMenu>

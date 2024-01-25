@@ -6,7 +6,7 @@ const Shop = () => {
     <div>
       <p className='text-2xl'>Current prices</p>
       <div className='bg-sky-200 p-3 flex flex-row justify-between text-xs'>
-        <div>Nintendo eS</div>
+        <div>Nintendo eShop</div>
         <div>Digital</div>
         <div>
           <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>

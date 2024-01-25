@@ -44,7 +44,7 @@ const items = () => {
           {/* ADD TO BTN */}
           <div className='flex flex-col space-y-3'>
             <div className='flex flex-row-reverse '>
-              <div className='border border-yellow-500 rounded-md w-48 h-9 flex pl-3'>
+              <div className='border border-yellow-500 rounded-md w-48 h-9 flex justify-center'>
                 <Link
                   href=''
                   className='flex flex-row items-center space-x-2 text-black'

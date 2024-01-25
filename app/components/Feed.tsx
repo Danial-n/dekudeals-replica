@@ -1,5 +1,11 @@
 import React from 'react';
-import { ChevronLeftCircle, ChevronRightCircle, Gift } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronLeftCircle,
+  ChevronRight,
+  ChevronRightCircle,
+  Gift,
+} from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -51,10 +57,10 @@ const Feed = () => {
         <div>The Feed</div>
         <div className='flex flex-row space-x-2'>
           <CarouselPrevious>
-            <ChevronLeftCircle />
+            <ChevronLeft />
           </CarouselPrevious>
           <CarouselNext>
-            <ChevronRightCircle />
+            <ChevronRight />
           </CarouselNext>
         </div>
       </div>

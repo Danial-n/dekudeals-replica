@@ -43,17 +43,9 @@ const Content = observer(() => {
     sethideFromHome(shouldHide);
   }, []);
 
-  // path for slicing
-  // const [shouldCut, setshouldCut] = useState(false);
-  // useEffect(() => {
-  //   const currentPathname = window.location.pathname;
-  //   const shouldCut = currentPathname === '/';
-  //   setshouldCut(shouldCut);
-  // }, []);
-
   //  PAGINATION
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 30; //no. of item in a page
+  const itemsPerPage = 29; //no. of item in a page
   const endOffset = itemOffset + itemsPerPage;
   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = gameData.games.slice(itemOffset, endOffset); // item within range
@@ -108,6 +100,7 @@ const Content = observer(() => {
             : 'pb-8 space-y-5'
         }`}
       >
+        {/* DISCOUNT SAMPLE */}
         <div className='md:w-full'>
           <Link
             href='/items'
@@ -137,7 +130,8 @@ const Content = observer(() => {
                   layoutViewStore.isLayout ? '' : 'order-3'
                 }`}
               >
-                <span className='line-through'>$9.99</span> $4.99{'   '}
+                <span className='line-through opacity-50'>$9.99</span> $4.99
+                {'   '}
                 <span className='text-xs bg-red-500 rounded-sm px-1'>-50%</span>
               </p>
               <div>

@@ -12,6 +12,8 @@ import {
   SunMoon,
   ChevronDown,
   ChevronsRight,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -31,6 +33,25 @@ import consoleStore from '../data/consoleStore';
 import { observer } from 'mobx-react';
 
 const Navbar = observer(() => {
+  // COUNTRY LIST
+  const ctryList = [
+    { name: 'Brunei', code: 'BN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'United States', code: 'US' },
+  ];
+  const [selectedCountry, setSelectedCountry] = useState(ctryList[0].code);
+  const handleCountrySelect = (country: React.SetStateAction<string>) => {
+    setSelectedCountry(country);
+  };
+  const ctry = ctryList.map((country, index) => (
+    <DropdownMenuItem
+      key={index}
+      onClick={() => handleCountrySelect(country.code)}
+    >
+      {country.name}
+    </DropdownMenuItem>
+  ));
+
   // DarkMode
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -40,12 +61,6 @@ const Navbar = observer(() => {
   if (!mounted) {
     return null;
   }
-
-  // COUNTRY LIST
-  const ctryList = ['Brunei', 'Japan', 'United State'];
-  const ctry = ctryList.map((country, index) => (
-    <DropdownMenuItem key={index}>{country}</DropdownMenuItem>
-  ));
 
   return (
     <div className='w-screen flex flex-col'>
@@ -68,7 +83,7 @@ const Navbar = observer(() => {
               <DropdownMenu>
                 <DropdownMenuTrigger className='flex flex-row space-x-1 hover:bg-zinc-700 hover:text-white h-full items-center px-3'>
                   <Globe2 />
-                  <p>BN</p>
+                  <p>{selectedCountry}</p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>{ctry}</DropdownMenuContent>
               </DropdownMenu>
@@ -112,13 +127,15 @@ const Navbar = observer(() => {
             </li>
             {/* THEME SELECTION - HIDDEN IN MOBILE */}
             <li className='hidden md:block h-full'>
-              <div className='hover:bg-zinc-700 hover:text-white h-full flex items-center px-3'>
-                <SunMoon
-                  className='bg-transparent dark:bg-[#212933]'
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                >
-                  {theme === 'light' ? 'Dark' : 'Light'}
-                </SunMoon>
+              <div
+                className='hover:bg-zinc-700 hover:text-white h-full flex items-center px-3'
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              >
+                {theme === 'light' ? (
+                  <Moon />
+                ) : (
+                  <Sun color='yellow' fill='yellow' />
+                )}
               </div>
             </li>
           </ul>
@@ -148,7 +165,7 @@ const Navbar = observer(() => {
             <DropdownMenu>
               <DropdownMenuTrigger className='flex flex-row space-x-1 hover:bg-zinc-700 hover:text-white h-full items-center px-3'>
                 <Globe2 />
-                <p>BN</p>
+                <p>{selectedCountry}</p>
               </DropdownMenuTrigger>
               <DropdownMenuContent>{ctry}</DropdownMenuContent>
             </DropdownMenu>

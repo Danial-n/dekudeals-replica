@@ -5,14 +5,16 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import { ChevronDown } from 'lucide-react';
 
 const DescriptionSect = () => {
   return (
     <div className='text-3xl space-y-5'>
       {/* DESCRIPTION */}
-      <Collapsible className='border-b pb-5'>
-        <CollapsibleTrigger className='w-full flex justify-start'>
+      <Collapsible className='border-b pb-5 pt-5'>
+        <CollapsibleTrigger className='w-full flex justify-between items-center'>
           Description
+          <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent>
           <div className='text-base pt-5'>
@@ -39,8 +41,9 @@ const DescriptionSect = () => {
 
       {/* SCREENSHOT */}
       <Collapsible className='border-b pb-5'>
-        <CollapsibleTrigger className='w-full flex justify-start'>
+        <CollapsibleTrigger className='w-full flex justify-between items-center'>
           Screenshots
+          <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent className='pt-5'>
           <div className='flex flex-col items-center'>
@@ -64,8 +67,9 @@ const DescriptionSect = () => {
 
       {/* DLC */}
       <Collapsible className='border-b pb-5'>
-        <CollapsibleTrigger className='w-full flex justify-start'>
+        <CollapsibleTrigger className='w-full flex justify-between items-center'>
           DLC
+          <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent className='pt-5'>
           <div className='flex text-base space-x-5'>
@@ -84,8 +88,9 @@ const DescriptionSect = () => {
 
       {/* INCLUDED IN */}
       <Collapsible className='border-b pb-5'>
-        <CollapsibleTrigger className='w-full flex justify-start'>
+        <CollapsibleTrigger className='w-full flex justify-between items-center'>
           Included In
+          <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent className='pt-5'>
           <div className='flex text-base space-x-5'>
