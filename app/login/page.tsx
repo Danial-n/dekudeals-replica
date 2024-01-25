@@ -28,11 +28,13 @@ const login = () => {
               className='border border-neutral-200 rounded-md h-10'
             />
           </div>
-          <Link href='/account'>
-            <button className='rounded-sm bg-green-500 text-white  w-20 h-9'>
-              Log in!
-            </button>
-          </Link>
+          <div>
+            <Link href='/account'>
+              <button className='rounded-sm bg-green-500 text-white  w-20 h-9'>
+                Log in!
+              </button>
+            </Link>
+          </div>
         </form>
         <div>
           <p>

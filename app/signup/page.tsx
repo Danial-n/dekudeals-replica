@@ -103,11 +103,13 @@ const signup = () => {
               </p>
             </div>
           </div>
-          <Link href='/account'>
-            <button className='rounded-sm bg-green-500 text-white  w-20 h-9'>
-              Sign up!
-            </button>
-          </Link>
+          <div>
+            <Link href='/account'>
+              <button className='rounded-sm bg-green-500 text-white  w-20 h-9'>
+                Sign up!
+              </button>
+            </Link>
+          </div>
         </form>
       </div>
     </div>

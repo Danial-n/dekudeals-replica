@@ -15,11 +15,23 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import ReactPaginate from 'react-paginate';
+import { autorun } from 'mobx';
+import sortGameStore from '../data/sortGameStore';
 
 const Content = observer(() => {
   // shuffle game list
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-  const newGameData = shuffle(gameData.games);
+  const shuffleGameData = shuffle(gameData.games);
+
+  // sort by title
+  const sortTitle = (arr) =>
+    [...arr].sort((a, b) => a.title.localeCompare(b.title));
+  const titleGameData = sortTitle(gameData.games);
+
+  // sort by price
+  const sortPrice = (arr) =>
+    [...arr].sort((a, b) => a.price.localeCompare(b.price));
+  const priceGameData = sortPrice(gameData.games);
 
   // hide item in "/content" only
   const [hideFromContent, sethideFromContent] = useState(false);
@@ -61,13 +73,13 @@ const Content = observer(() => {
   // display for home or content page
   const currentPathname = window.location.pathname;
   const atHome = currentPathname === '/';
-  const displayedGames = atHome ? newGameData.slice(0, 11) : currentItems;
+  const displayedGames = atHome ? shuffleGameData.slice(0, 10) : currentItems;
 
   return (
-    <div className='flex flex-col space-y-5 2xl:w-[1080px]'>
+    <div className='flex flex-col space-y-5 w-full'>
       {/* PAGINATION */}
       {!hideFromHome && (
-        <div className='flex w-full space-x-3 items-center justify-end'>
+        <div className='hidden md:flex w-full space-x-3 items-center justify-end'>
           <div>
             <p>
               {itemOffset + 1}-{endOffset + 1} of {gameData.games.length + 1}
@@ -102,6 +114,66 @@ const Content = observer(() => {
             : 'pb-8 space-y-5'
         }`}
       >
+        <div className='md:w-full'>
+          <Link
+            href='/items'
+            className={`${
+              layoutViewStore.isLayout ? 'space-y-3' : 'flex space-x-7'
+            }`}
+          >
+            <Image
+              src='/assets/w504.jpg'
+              width={`${layoutViewStore.isLayout ? '170' : '130'}`}
+              height={`${layoutViewStore.isLayout ? '170' : '130'}`}
+              alt='img'
+              className='rounded-lg shadow-xl border-2 border-gray-300'
+            />
+            <div
+              className={`${
+                layoutViewStore.isLayout
+                  ? ''
+                  : 'md:w-full flex space-x-5 md:justify-between'
+              }`}
+            >
+              <p className={layoutViewStore.isLayout ? '' : 'order-1'}>
+                Discount
+              </p>
+              <p
+                className={`text-black dark:text-white ${
+                  layoutViewStore.isLayout ? '' : 'order-3'
+                }`}
+              >
+                <span className='line-through'>$9.99</span> $4.99{'   '}
+                <span className='text-xs bg-red-500 rounded-sm px-1'>-50%</span>
+              </p>
+              <div>
+                <span className='text-black text-xs font-bold bg-yellow-500 rounded-sm px-1'>
+                  Lowest price ever
+                </span>
+                <p className='text-black dark:text-white text-xs '>
+                  sales end January 29
+                </p>
+              </div>
+              {!hideFromHome && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger
+                    className={`text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center 
+                      ${layoutViewStore.isLayout ? '' : 'order-2'}`}
+                  >
+                    Add to <ChevronDown />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
+                    <DropdownMenuItem>Add to collection</DropdownMenuItem>
+                    <DropdownMenuItem>Rating</DropdownMenuItem>
+                    <DropdownMenuItem>Hide</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
+          </Link>
+        </div>
+
         {/* game box */}
         {displayedGames.map((game, index) => (
           <div key={index} className='md:w-full'>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const accountdelete = () => {
   return (
-    <div className='px-5 py-3 space-y-5 pb-16'>
+    <div className='md:w-2/4 px-5 py-3 space-y-5 pb-16'>
       <form className='space-y-3'>
         <h2 className='font-light'>Delete Your Account</h2>
         <p>

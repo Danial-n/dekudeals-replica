@@ -51,7 +51,7 @@ const Navbar = observer(() => {
     <div className='w-screen flex flex-col'>
       {/* NAV 1 */}
       <div className='bg-neutral-300 dark:bg-neutral-800 2xl:flex 2xl:justify-center'>
-        <nav className='flex flex-row h-[50px] items-center justify-between px-3 2xl:w-[1340px]'>
+        <nav className='flex flex-row h-[50px] items-center justify-between px-3 2xl:w-[1080px]'>
           {/* NAV LEFT */}
           <ul className='flex items-center h-full'>
             <li className='pr-5'>
@@ -60,7 +60,7 @@ const Navbar = observer(() => {
               </Link>
             </li>
 
-            {/* HIDDEN IN MOBILE */}
+            {/* REGION SELECTION - HIDDEN IN MOBILE */}
             <li
               data-dropdown-toggle='dropdown'
               className='hidden md:block h-full'
@@ -73,14 +73,14 @@ const Navbar = observer(() => {
                 <DropdownMenuContent>{ctry}</DropdownMenuContent>
               </DropdownMenu>
             </li>
-            {/* HIDDEN IN MOBILE */}
+            {/* CONSOLE SELECTION - HIDDEN IN MOBILE */}
             <li className='hidden md:block h-full'>
               <Link
                 href='/consoles'
                 className='flex hover:bg-zinc-700 hover:text-white h-full items-center px-3'
               >
                 <Image
-                  src='/assets/icons8-n-16.png'
+                  src='/assets/switch_logo.svg'
                   width={24}
                   height={24}
                   alt='img'
@@ -91,8 +91,8 @@ const Navbar = observer(() => {
                   }`}
                 />
                 <Image
-                  src='/assets/icons8-p-16.png'
-                  width={24}
+                  src='/assets/ps_logo.svg'
+                  width={34}
                   height={24}
                   alt='img'
                   className={`${
@@ -100,7 +100,7 @@ const Navbar = observer(() => {
                   }`}
                 />
                 <Image
-                  src='/assets/icons8-x-16.png'
+                  src='/assets/xbox_logo.svg'
                   width={24}
                   height={24}
                   alt='img'
@@ -110,7 +110,7 @@ const Navbar = observer(() => {
                 />
               </Link>
             </li>
-            {/* HIDDEN IN MOBILE */}
+            {/* THEME SELECTION - HIDDEN IN MOBILE */}
             <li className='hidden md:block h-full'>
               <div className='hover:bg-zinc-700 hover:text-white h-full flex items-center px-3'>
                 <SunMoon
@@ -159,7 +159,7 @@ const Navbar = observer(() => {
               className='flex hover:bg-zinc-700 hover:text-white h-full items-center px-3'
             >
               <Image
-                src='/assets/icons8-n-16.png'
+                src='/assets/switch_logo.svg'
                 width={24}
                 height={24}
                 alt='img'
@@ -170,8 +170,8 @@ const Navbar = observer(() => {
                 }`}
               />
               <Image
-                src='/assets/icons8-p-16.png'
-                width={24}
+                src='/assets/ps_logo.svg'
+                width={34}
                 height={24}
                 alt='img'
                 className={`${
@@ -179,7 +179,7 @@ const Navbar = observer(() => {
                 }`}
               />
               <Image
-                src='/assets/icons8-x-16.png'
+                src='/assets/xbox_logo.svg'
                 width={24}
                 height={24}
                 alt='img'
@@ -205,7 +205,7 @@ const Navbar = observer(() => {
 
       {/* NAV 3(MOBILE) & NAV 2(DESKTOP) */}
       <Collapsible className='bg-neutral-100 dark:bg-neutral-950 2xl:flex 2xl:justify-center'>
-        <nav className='flex flex-row items-center justify-between space-x-5 h-[50px] px-3 2xl:w-[1340px]'>
+        <nav className='flex flex-row items-center justify-between space-x-5 h-[50px] px-3 2xl:w-[1080px]'>
           {/* NAV LEFT */}
           <ul className='flex flex-row h-full'>
             {/* Browse */}

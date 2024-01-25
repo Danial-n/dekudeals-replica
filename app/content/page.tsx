@@ -16,11 +16,12 @@ import {
 } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp, Grid3X3, Rows3 } from 'lucide-react';
 import layoutViewStore from '../data/layoutViewStore';
+import sortGameStore from '../data/sortGameStore';
 
 const content = () => {
   // Content organise button
   const [selectedButton, setSelectedButton] = useState('button2');
-  const handleButtonClick = (button) => {
+  const handleButtonClick = (button: React.SetStateAction<string>) => {
     setSelectedButton(button);
   };
 
@@ -31,9 +32,16 @@ const content = () => {
   };
 
   // sort by list
-  const sortWords = ['Time', 'Price', 'Discount'];
+  const sortWords = ['Name', 'Price', 'Discount'];
   const sortBy = sortWords.map((word, index) => (
-    <DropdownMenuItem key={index}>{word}</DropdownMenuItem>
+    <DropdownMenuItem
+      key={index}
+      onClick={() => {
+        sortGameStore.handleSort(word);
+      }}
+    >
+      {word}
+    </DropdownMenuItem>
   ));
 
   return (
