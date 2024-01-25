@@ -7,7 +7,7 @@ const login = () => {
       <div className='space-y-3'>
         <h1>Log in</h1>
         <p>
-          Don't have an account? <Link href='/signup'>Sign up</Link>
+          Don&apos;t have an account? <Link href='/signup'>Sign up</Link>
         </p>
       </div>
       <div className='space-y-3'>

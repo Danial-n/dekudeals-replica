@@ -15,21 +15,15 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import ReactPaginate from 'react-paginate';
-import { autorun } from 'mobx';
-import sortGameStore from '../data/sortGameStore';
 
 const Content = observer(() => {
-  // shuffle game list
-  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-  const shuffleGameData = shuffle(gameData.games);
-
   // sort by title
-  const sortTitle = (arr) =>
+  const sortTitle = (arr: { title: string; price: string; images: string }[]) =>
     [...arr].sort((a, b) => a.title.localeCompare(b.title));
   const titleGameData = sortTitle(gameData.games);
 
   // sort by price
-  const sortPrice = (arr) =>
+  const sortPrice = (arr: { title: string; price: string; images: string }[]) =>
     [...arr].sort((a, b) => a.price.localeCompare(b.price));
   const priceGameData = sortPrice(gameData.games);
 
@@ -65,15 +59,15 @@ const Content = observer(() => {
   const currentItems = gameData.games.slice(itemOffset, endOffset); // item within range
   const pageCount = Math.ceil(gameData.games.length / itemsPerPage);
   // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
+  const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % gameData.games.length;
     setItemOffset(newOffset);
   };
 
   // display for home or content page
-  const currentPathname = window.location.pathname;
-  const atHome = currentPathname === '/';
-  const displayedGames = atHome ? shuffleGameData.slice(0, 10) : currentItems;
+  const pathname = usePathname();
+  const atHome = pathname === '/';
+  const displayedGames = atHome ? titleGameData.slice(0, 10) : currentItems;
 
   return (
     <div className='flex flex-col space-y-5 w-full'>

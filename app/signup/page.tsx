@@ -31,7 +31,7 @@ const signup = () => {
   // GAME TYPE OPT
   const gameList = ['Nintendo Switch', 'Playstation 5', 'Xbox Series X/S'];
   const gameForm = gameList.map((word, index) => (
-    <Collapsible>
+    <Collapsible key={index}>
       <CollapsibleTrigger className='flex flex-row space-x-2'>
         <input type='checkbox' />
         <p>{word}</p>
@@ -75,7 +75,8 @@ const signup = () => {
             <p>
               Country{' '}
               <span className='text-sm'>
-                (We'll only notify you about deals available in your country)
+                (We&apos;ll only notify you about deals available in your
+                country)
               </span>
             </p>
             <DropdownMenuTrigger className='border border-neutral-200 w-full h-10 rounded-sm text-left pl-3 flex flex-row justify-between items-center'>

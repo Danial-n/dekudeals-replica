@@ -31,7 +31,7 @@ const account = () => {
   // GAME TYPE OPT
   const gameList = ['Nintendo Switch', 'Playstation 5', 'Xbox Series X/S'];
   const gameForm = gameList.map((word, index) => (
-    <Collapsible>
+    <Collapsible key={index}>
       <CollapsibleTrigger className='flex flex-row space-x-2'>
         <input type='checkbox' />
         <p>{word}</p>
@@ -108,7 +108,7 @@ const account = () => {
               <div className='flex space-x-1'>
                 <input type='checkbox' />
                 <p>
-                  Send me an email any time there's a deal for items on my
+                  Send me an email any time there&apos;s a deal for items on my
                   wishlist
                 </p>
               </div>
@@ -124,8 +124,8 @@ const account = () => {
           <div className='space-y-2'>
             <p className='text-2xl'>Hiding</p>
             <p>
-              Hidden items don't appear when browsing games, on the homepage, or
-              in the weekly email. View your hidden items
+              Hidden items don&apos;t appear when browsing games, on the
+              homepage, or in the weekly email. View your hidden items
             </p>
             <div>
               <div className='flex space-x-1'>

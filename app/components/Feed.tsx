@@ -46,39 +46,35 @@ const Feed = () => {
   const combinedCarouselItems = [...carouselItems, ...carouselItems];
 
   return (
-    <div>
-      <Carousel className='border-y-2 2xl:border-2 bg-neutral-100 dark:bg-neutral-800 py-2 px-3 space-y-2'>
-        {/* Header */}
-        <div className='flex flex-row justify-between items-center'>
-          <div>The Feed</div>
-          <div className='flex flex-row space-x-2'>
-            <CarouselPrevious>
-              <ChevronLeftCircle />
-            </CarouselPrevious>
-            <CarouselNext>
-              <ChevronRightCircle />
-            </CarouselNext>
-          </div>
+    <Carousel className='border-y-2 2xl:border-2 bg-neutral-100 dark:bg-neutral-800 py-2 px-3 space-y-2'>
+      <div className='flex flex-row justify-between items-center'>
+        <div>The Feed</div>
+        <div className='flex flex-row space-x-2'>
+          <CarouselPrevious>
+            <ChevronLeftCircle />
+          </CarouselPrevious>
+          <CarouselNext>
+            <ChevronRightCircle />
+          </CarouselNext>
         </div>
+      </div>
 
-        {/* Content */}
-        <div>
-          <CarouselContent className='space-x-5'>
-            {combinedCarouselItems.map((item, index) => (
-              <CarouselItem key={index} className={item.borderColor}>
-                <div>
-                  <Gift size={75} color='white' className={item.color} />
-                </div>
-                <p className='flex flex-col text-xs'>
-                  <span className={item.textColor}>{item.title}</span>
-                  {item.description}
-                </p>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </div>
-      </Carousel>
-    </div>
+      <div>
+        <CarouselContent className='space-x-5'>
+          {combinedCarouselItems.map((item, index) => (
+            <CarouselItem key={index} className={item.borderColor}>
+              <div>
+                <Gift size={75} color='white' className={item.color} />
+              </div>
+              <p className='flex flex-col text-xs'>
+                <span className={item.textColor}>{item.title}</span>
+                {item.description}
+              </p>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </div>
+    </Carousel>
   );
 };
 

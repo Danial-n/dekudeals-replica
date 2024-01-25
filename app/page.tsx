@@ -17,7 +17,7 @@ export default function Home() {
           <p>
             Want to be notified when the games you want go on sale?{' '}
             <Link href='/signup'>Sign up</Link>, add some to your wishlist, and
-            you'll get an email when they go on sale!
+            you&apos;ll get an email when they go on sale!
           </p>
         </div>
       </div>

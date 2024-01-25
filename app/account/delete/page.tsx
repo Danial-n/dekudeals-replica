@@ -14,8 +14,8 @@ const accountdelete = () => {
         </p>
         <p>
           For your safety, please confirm you wish to delete all data associated
-          with yourEmail@gmail.com by typing "
-          <span className='font-bold'>confirm</span>" below.{' '}
+          with yourEmail@gmail.com by typing &quot;
+          <span className='font-bold'>confirm</span>&quot; below.
         </p>
         <div className='space-y-10'>
           <input
