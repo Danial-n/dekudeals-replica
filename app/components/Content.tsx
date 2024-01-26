@@ -20,13 +20,15 @@ import sortGameStore from '../data/sortGameStore';
 
 const Content = observer(() => {
   // sort by title
-  const sortTitle = (arr: { title: string; price: string; images: string }[]) =>
-    [...arr].sort((a, b) => a.title.localeCompare(b.title));
+  const sortTitle = (
+    arr: { title: string; price: string; images: string; id: number }[]
+  ) => [...arr].sort((a, b) => a.title.localeCompare(b.title));
   const titleGameData = sortTitle(gameData.games);
 
   // sort by price
-  const sortPrice = (arr: { title: string; price: string; images: string }[]) =>
-    [...arr].sort((a, b) => a.price.localeCompare(b.price));
+  const sortPrice = (
+    arr: { title: string; price: string; images: string; id: number }[]
+  ) => [...arr].sort((a, b) => a.price.localeCompare(b.price));
   const priceGameData = sortPrice(gameData.games);
 
   // sort by discount
@@ -34,7 +36,7 @@ const Content = observer(() => {
 
   // sorting...
   const sortGames = (gameData: {
-    games: { title: string; price: string; images: string }[];
+    games: { title: string; price: string; images: string; id: number }[];
   }) => {
     let sortedGames = [];
     switch (sortGameStore.selectedSort) {
@@ -89,10 +91,14 @@ const Content = observer(() => {
   const displayedGames = atHome ? titleGameData.slice(0, 10) : currentItems;
 
   // get selected item - to add in wishlist/collection
-  const itemHandler = (index: number) => {
-    const selectedIndex = index;
-    const selectedGame = gameData.games[selectedIndex];
-    selectedGameStore.updateSelectedGame(selectedGame);
+  const itemHandler = (id: number) => {
+    const selectedGame = gameData.games.find((game) => game.id === id);
+    if (selectedGame) {
+      selectedGameStore.updateSelectedGame(selectedGame);
+      console.log(selectedGame);
+    } else {
+      console.error(`No game found with id ${id}`);
+    }
   };
 
   // const addToWishlistHandler = () => {
@@ -214,7 +220,7 @@ const Content = observer(() => {
           <div
             key={index}
             className='md:w-full'
-            onClick={() => itemHandler(index)}
+            onClick={() => itemHandler(game.id)}
           >
             <Link
               href='/items'
