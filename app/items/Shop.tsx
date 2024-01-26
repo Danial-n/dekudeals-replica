@@ -1,7 +1,11 @@
+import { observer } from 'mobx-react';
 import Link from 'next/link';
 import React from 'react';
+import selectedGameStore from '../data/selectedGameStore';
 
-const Shop = () => {
+const Shop = observer(() => {
+  const { price } = selectedGameStore.selectedGame;
+
   return (
     <div>
       <p className='text-2xl'>Current prices</p>
@@ -11,7 +15,7 @@ const Shop = () => {
         <div>
           <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>
             <Link href='/' className='text-white'>
-              BND$3.00
+              {price}
             </Link>
           </div>
         </div>
@@ -22,7 +26,7 @@ const Shop = () => {
         <div>
           <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>
             <Link href='/' className='text-white'>
-              BND$3.00
+              {price}
             </Link>
           </div>
         </div>
@@ -33,7 +37,7 @@ const Shop = () => {
         <div>
           <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>
             <Link href='/' className='text-white'>
-              BND$3.00
+              {price}
             </Link>
           </div>
         </div>
@@ -46,6 +50,6 @@ const Shop = () => {
       </p>
     </div>
   );
-};
+});
 
 export default Shop;

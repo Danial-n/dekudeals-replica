@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Content from '../components/Content';
 import {
   DropdownMenuItem,
@@ -16,11 +15,10 @@ import {
 } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp, Grid3X3, Rows3 } from 'lucide-react';
 import layoutViewStore from '../data/layoutViewStore';
-import { list } from 'postcss';
+import sortGameStore from '../data/sortGameStore';
 
 const Page = () => {
   // Content organise button
-
   const [selectedButton, setSelectedButton] = React.useState('button2');
   const handleButtonClick = (button: React.SetStateAction<string>) => {
     setSelectedButton(button);
@@ -35,7 +33,8 @@ const Page = () => {
   // sort by list
   const sortWords = ['Name', 'Price', 'Discount'];
   const [selectedSort, setSelectedSort] = useState(sortWords[0]);
-  const handleSortSelect = (word: React.SetStateAction<string>) => {
+  const handleSortSelect = (word: string) => {
+    sortGameStore.setSelectedSort(word);
     setSelectedSort(word);
   };
   const sortBy = sortWords.map((word, index) => (

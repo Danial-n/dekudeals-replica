@@ -1,11 +1,15 @@
 import React from 'react';
+import selectedGameStore from '../data/selectedGameStore';
+import { observer } from 'mobx-react';
 
-const ItemDetails = () => {
+const ItemDetails = observer(() => {
+  const { price } = selectedGameStore.selectedGame;
+
   return (
     <div className='flex flex-col space-y-3 '>
       <p className='text-3xl'>Details</p>
       <p>Demo Available</p>
-      <p>MSRP: $5.99</p>
+      <p>MSRP: {price}</p>
       <p>Released: February 15, 2020</p>
       <p>Genre: Action, Platformer</p>
       <p>Developer: Matt Makes Games</p>
@@ -21,6 +25,6 @@ const ItemDetails = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ItemDetails;

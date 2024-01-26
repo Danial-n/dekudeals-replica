@@ -15,6 +15,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import ReactPaginate from 'react-paginate';
+import selectedGameStore from '../data/selectedGameStore';
+import sortGameStore from '../data/sortGameStore';
 
 const Content = observer(() => {
   // sort by title
@@ -26,6 +28,31 @@ const Content = observer(() => {
   const sortPrice = (arr: { title: string; price: string; images: string }[]) =>
     [...arr].sort((a, b) => a.price.localeCompare(b.price));
   const priceGameData = sortPrice(gameData.games);
+
+  // sort by discount
+  // TODO
+
+  // sorting...
+  const sortGames = (gameData: {
+    games: { title: string; price: string; images: string }[];
+  }) => {
+    let sortedGames = [];
+    switch (sortGameStore.selectedSort) {
+      case 'Name':
+        sortedGames = sortTitle(gameData.games);
+        return sortedGames;
+      case 'Price':
+        sortedGames = sortPrice(gameData.games);
+        return sortedGames;
+      // case 'discount':
+      //   sortedGames = sortDiscount(gameData.games);
+      //   break;
+      default:
+        sortedGames = sortPrice(gameData.games);
+        return sortedGames;
+    }
+  };
+  const sortedGames = sortGames(gameData);
 
   // hide item in "/content" only
   const [hideFromContent, sethideFromContent] = useState(false);
@@ -48,7 +75,7 @@ const Content = observer(() => {
   const itemsPerPage = 29; //no. of item in a page
   const endOffset = itemOffset + itemsPerPage;
   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  const currentItems = gameData.games.slice(itemOffset, endOffset); // item within range
+  const currentItems = sortedGames.slice(itemOffset, endOffset); // item within range
   const pageCount = Math.ceil(gameData.games.length / itemsPerPage);
   // Invoke when user click to request another page.
   const handlePageClick = (event: { selected: number }) => {
@@ -60,6 +87,26 @@ const Content = observer(() => {
   const pathname = usePathname();
   const atHome = pathname === '/';
   const displayedGames = atHome ? titleGameData.slice(0, 10) : currentItems;
+
+  // get selected item - to add in wishlist/collection
+  const itemHandler = (index: number) => {
+    const selectedIndex = index;
+    const selectedGame = gameData.games[selectedIndex];
+    selectedGameStore.updateSelectedGame(selectedGame);
+  };
+
+  // const addToWishlistHandler = () => {
+  //   const { title, price, images } = selectedGameStore.selectedGame;
+  //   const selectedGame = { title, price, images };
+  //   selectedGameStore.addToWishlist(selectedGame);
+  // };
+
+  // const wishlistStatus = selectedGameStore.isWishlistEmpty();
+  // if (wishlistStatus.isEmpty) {
+  //   console.log('Wishlist is empty');
+  // } else {
+  //   console.log('Wishlist has items:', wishlistStatus.content);
+  // }
 
   return (
     <div className='flex flex-col space-y-5 w-full'>
@@ -164,7 +211,11 @@ const Content = observer(() => {
 
         {/* game box */}
         {displayedGames.map((game, index) => (
-          <div key={index} className='md:w-full'>
+          <div
+            key={index}
+            className='md:w-full'
+            onClick={() => itemHandler(index)}
+          >
             <Link
               href='/items'
               className={`${
@@ -195,24 +246,24 @@ const Content = observer(() => {
                 >
                   {game.price}
                 </p>
-                {!hideFromHome && (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      className={`text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center 
-                      ${layoutViewStore.isLayout ? '' : 'order-2'}`}
-                    >
-                      Add to <ChevronDown />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
-                      <DropdownMenuItem>Add to collection</DropdownMenuItem>
-                      <DropdownMenuItem>Rating</DropdownMenuItem>
-                      <DropdownMenuItem>Hide</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                )}
               </div>
             </Link>
+            {!hideFromHome && (
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={`text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center 
+                      ${layoutViewStore.isLayout ? '' : 'order-2'}`}
+                >
+                  Add to <ChevronDown />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
+                  <DropdownMenuItem>Add to collection</DropdownMenuItem>
+                  <DropdownMenuItem>Rating</DropdownMenuItem>
+                  <DropdownMenuItem>Hide</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         ))}
 
@@ -259,3 +310,6 @@ const Content = observer(() => {
 });
 
 export default Content;
+function setSelectedSort(word: string) {
+  throw new Error('Function not implemented.');
+}

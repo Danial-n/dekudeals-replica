@@ -52,12 +52,12 @@
     },
     {
       "title": "Last",
-      "price": "BND $1.00",
+      "price": "BND $0.90",
       "images": "/assets/w510.jpg"
     },
     {
       "title": "Celeste",
-      "price": "BND $5.00",
+      "price": "BND $0.10",
       "images": "/assets/w500.jpg"
     },
     {
@@ -385,5 +385,6 @@
       "price": "BND $1.00",
       "images": "/assets/w510.jpg"
     }
-  ]
+  ],
+  "wishlist": []
 }

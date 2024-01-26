@@ -1,32 +1,18 @@
-// import { makeObservable, observable, action, runInAction } from 'mobx';
-// import Content from '../components/Content';
+import { makeObservable, observable, action, runInAction } from 'mobx';
 
-// class sortGameStore {
-//   newGameData = null;
+class sortGameStore {
+  selectedSort: string = 'Name';
 
-//   constructor() {
-//     makeObservable(this, {
-//       newGameData: observable,
-//       setNewGameData: action,
-//     });
-//   }
+  constructor() {
+    makeObservable(this, {
+      selectedSort: observable,
+      setSelectedSort: action,
+    });
+  }
 
-//   setNewGameData(data) {
-//     this.newGameData = data;
-//   }
+  setSelectedSort(word: string) {
+    this.selectedSort = word;
+  }
+}
 
-//   // Your existing handleSort method
-//   handleSort = (selectedWord) => {
-//     console.log(`Sorting by: ${selectedWord}`);
-
-//     if (selectedWord === 'Price') {
-//       this.newGameData = Content.priceGameData;
-//       console.log('Sorted data based on Price:', this.newGameData);
-
-//       // Update observable property with the sorted data
-//       runInAction(() => this.setNewGameData(this.newGameData));
-//     }
-//   };
-// }
-
-// export default new sortGameStore();
+export default new sortGameStore();

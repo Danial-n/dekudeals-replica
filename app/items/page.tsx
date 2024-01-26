@@ -3,29 +3,29 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible';
 import { Bell } from 'lucide-react';
 import Shop from './Shop';
 import PriceHistory from './PriceHistory';
 import DescriptionSect from './DescriptionSect';
 import ItemDetails from './ItemDetails';
+import selectedGameStore from '../data/selectedGameStore';
+import { observer } from 'mobx-react';
 
-const items = () => {
+const items = observer(() => {
+  const { title, images } = selectedGameStore.selectedGame;
+  console.log(`from item page = ${title}`);
+
   return (
     <div className='px-5 py-3 md:w-full'>
       <div className='hidden md:block md:w-full'>
-        <h1>Celeste</h1>
+        <h1>{title}</h1>
       </div>
       <div className='space-y-5 pb-12 md:flex md:w-full md:space-x-5'>
         {/* img&title(mobile) // img&detail(desktop) */}
         <div className='flex space-x-3 md:flex-col md:w-1/3'>
           <div>
             <Image
-              src='/assets/w500.jpg'
+              src={images}
               width={96}
               height={96}
               alt='img'
@@ -33,8 +33,10 @@ const items = () => {
             />
           </div>
           <div className='flex items-center md:hidden'>
-            <p className='text-5xl font-thin'>Celeste</p>
+            <p className='text-5xl font-thin'>{title}</p>
           </div>
+
+          {/* DETAILS - HIDDEN IN MOBILE */}
           <div className='hidden md:block'>
             <ItemDetails />
           </div>
@@ -148,6 +150,6 @@ const items = () => {
       </div>
     </div>
   );
-};
+});
 
 export default items;
