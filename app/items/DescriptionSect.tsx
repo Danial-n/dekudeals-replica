@@ -46,20 +46,24 @@ const DescriptionSect = () => {
           <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent className='pt-5'>
-          <div className='flex flex-col items-center'>
+          <div className='flex flex-col items-center space-y-3'>
             <Image
-              src='/assets/w500.jpg'
-              width={240}
-              height={96}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300 object-fill'
+              src='/assets/ss-1.jpeg'
+              width={500}
+              height={300}
+              alt='screenshot'
             />
             <Image
-              src='/assets/w500.jpg'
-              width={240}
-              height={96}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
+              src='/assets/ss-2.jpeg'
+              width={500}
+              height={300}
+              alt='screenshot'
+            />
+            <Image
+              src='/assets/ss-3.jpeg'
+              width={500}
+              height={300}
+              alt='screenshot'
             />
           </div>
         </CollapsibleContent>
@@ -101,8 +105,8 @@ const DescriptionSect = () => {
               alt='img'
               className=''
             />
-            <p>DLC 1 VOL 1</p>
-            <p>BND$1.99</p>
+            <p>Ultimate Edition</p>
+            <p>BND$9.99</p>
           </div>
         </CollapsibleContent>
       </Collapsible>

@@ -24,25 +24,25 @@ const Shop = observer(() => {
         <div>amazon.com</div>
         <div>Digital</div>
         <div>
-          <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>
-            <Link href='/' className='text-white'>
+          <div className='border border-neutral-600 py-3 px-5 rounded-sm'>
+            <Link href='/' className='text-neutral-600'>
               {price}
             </Link>
           </div>
         </div>
       </div>
       <div className=' p-3 flex flex-row justify-between text-xs border-t border-neutral-200'>
-        <div>amazon.com</div>
+        <div>Humble Store</div>
         <div>Digital</div>
         <div>
-          <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>
-            <Link href='/' className='text-white'>
+          <div className='border border-neutral-600 py-3 px-5 rounded-sm'>
+            <Link href='/' className='text-neutral-600'>
               {price}
             </Link>
           </div>
         </div>
       </div>
-      <p>
+      <p className='text-sm border-b'>
         Available on{' '}
         <Link href='/' className='text-sky-500'>
           other platforms

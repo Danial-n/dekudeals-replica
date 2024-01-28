@@ -3,24 +3,45 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Bell } from 'lucide-react';
+import { Bell, ChevronDown } from 'lucide-react';
 import Shop from './Shop';
 import PriceHistory from './PriceHistory';
 import DescriptionSect from './DescriptionSect';
 import ItemDetails from './ItemDetails';
 import selectedGameStore from '../data/selectedGameStore';
 import { observer } from 'mobx-react';
+import gameData from '../data/gameList.json';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import layoutViewStore from '../data/layoutViewStore';
 
 const items = observer(() => {
+  // get title and img
   const { title, images } = selectedGameStore.selectedGame;
   console.log(`from item page = ${title}`);
 
+  // get selected item - to add in wishlist/collection
+  const itemHandler = (id: number) => {
+    const selectedGame = gameData.games.find((game) => game.id === id);
+    if (selectedGame) {
+      selectedGameStore.updateSelectedGame(selectedGame);
+      console.log(selectedGame);
+    } else {
+      console.error(`No game found with id ${id}`);
+    }
+  };
+
   return (
-    <div className='px-5 py-3 md:w-full'>
-      <div className='hidden md:block md:w-full'>
+    <div className='px-5 py-3 w-screen pb-20'>
+      {/* TITLE - HIDDEN IN MOBILE */}
+      <div className='hidden md:block w-full'>
         <h1>{title}</h1>
       </div>
-      <div className='space-y-5 pb-12 md:flex md:w-full md:space-x-5'>
+      <div className='space-y-5 pb-12 md:flex w-full md:space-x-5'>
         {/* img&title(mobile) // img&detail(desktop) */}
         <div className='flex space-x-3 md:flex-col md:w-1/3'>
           <div>
@@ -46,18 +67,17 @@ const items = observer(() => {
           {/* ADD TO BTN */}
           <div className='flex flex-col space-y-3'>
             <div className='flex flex-row-reverse '>
-              <div className='border border-yellow-500 rounded-md w-48 h-9 flex justify-center'>
-                <Link
-                  href=''
-                  className='flex flex-row items-center space-x-2 text-black'
-                >
-                  <Bell size='16px' />
-                  <p>Add to wishlist</p>
-                </Link>
-              </div>
-            </div>
-            <div className='bg-neutral-200 rounded-md text-center p-3'>
-              <p>Sign up to get notified next time this goes on sale</p>
+              <DropdownMenu>
+                <DropdownMenuTrigger className='border border-yellow-500 rounded-md w-48 h-9 flex justify-center items-center'>
+                  Add to <ChevronDown />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
+                  <DropdownMenuItem>Add to collection</DropdownMenuItem>
+                  <DropdownMenuItem>Rating</DropdownMenuItem>
+                  <DropdownMenuItem>Hide</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
@@ -76,76 +96,32 @@ const items = observer(() => {
           <ItemDetails />
         </div>
       </div>
-      {/* OTHERS RECC */}
+
+      {/* OTHERS REC */}
       <div>
-        <p className='text-2xl'>Other users also liked...</p>
-        <div className='w-full flex flex-row space-x-5'>
-          <div>
-            <Image
-              src='/assets/w500.jpg'
-              width={162}
-              height={162}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
-            />
-            <p className='text-sky-500'>Celeste</p>
-            <p>BND$5.00</p>
-          </div>
-          <div>
-            <Image
-              src='/assets/w500.jpg'
-              width={162}
-              height={162}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
-            />
-            <p className='text-sky-500'>Celeste</p>
-            <p>BND$5.00</p>
-          </div>
-          <div>
-            <Image
-              src='/assets/w500.jpg'
-              width={162}
-              height={162}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
-            />
-            <p className='text-sky-500'>Celeste</p>
-            <p>BND$5.00</p>
-          </div>
-          <div>
-            <Image
-              src='/assets/w500.jpg'
-              width={162}
-              height={162}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
-            />
-            <p className='text-sky-500'>Celeste</p>
-            <p>BND$5.00</p>
-          </div>
-          <div>
-            <Image
-              src='/assets/w500.jpg'
-              width={162}
-              height={162}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
-            />
-            <p className='text-sky-500'>Celeste</p>
-            <p>BND$5.00</p>
-          </div>
-          <div>
-            <Image
-              src='/assets/w500.jpg'
-              width={162}
-              height={162}
-              alt='img'
-              className='rounded-lg shadow-xl border-2 border-gray-300'
-            />
-            <p className='text-sky-500'>Celeste</p>
-            <p>BND$5.00</p>
-          </div>
+        <h3>Other users also liked...</h3>
+        <div className='md:flex justify-start md:space-x-5 grid grid-cols-2'>
+          {gameData.games.slice(0, 6).map((game, index) => (
+            <div
+              key={index}
+              className=' md:flex'
+              onClick={() => itemHandler(game.id)}
+            >
+              <Link href='/items'>
+                <Image
+                  src={game.images}
+                  width={160}
+                  height={160}
+                  alt='img'
+                  className='rounded-lg shadow-xl border-2 border-gray-300'
+                />
+                <div className='md:w-full flex flex-col md:justify-between text-left'>
+                  <p>{game.title}</p>
+                  <p className='text-black dark:text-white'>{game.price}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>
