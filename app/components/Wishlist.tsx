@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/dialog';
 
 const Wishlist = () => {
-  // get selected item - to add in wishlist/collection
+  // get selected item - !TODO // to add in wishlist/collection!
   const itemHandler = (id: number) => {
     const selectedGame = gameData.games.find((game) => game.id === id);
     if (selectedGame) {
@@ -35,6 +35,7 @@ const Wishlist = () => {
     }
   };
 
+  // get selected title
   const { title } = selectedGameStore.selectedGame;
 
   return (
@@ -60,9 +61,11 @@ const Wishlist = () => {
               </div>
             </Link>
             <div className='flex flex-col border-x border-yellow-500 rounded-sm'>
+              {/* REMOVE FROM WISHLIST BTN */}
               <button className=' border-t rounded-sm p-1 border-yellow-500 hover:bg-yellow-500 hover:text-white'>
                 On Wishlist
               </button>
+              {/* EDIT DETAILS */}
               <Dialog>
                 <DialogTrigger
                   className=' border-b rounded-sm p-1 border-yellow-500 text-xs text-sky-500'
@@ -122,12 +125,13 @@ const Wishlist = () => {
                 </DialogContent>
               </Dialog>
             </div>
+
+            {/* ADD TO BTN */}
             <DropdownMenu>
               <DropdownMenuTrigger className='text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center '>
                 Add to <ChevronDown />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
                 <DropdownMenuItem>Add to collection</DropdownMenuItem>
                 <DropdownMenuItem>Rating</DropdownMenuItem>
                 <DropdownMenuItem>Hide</DropdownMenuItem>

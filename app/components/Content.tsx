@@ -316,6 +316,3 @@ const Content = observer(() => {
 });
 
 export default Content;
-function setSelectedSort(word: string) {
-  throw new Error('Function not implemented.');
-}
