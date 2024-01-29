@@ -199,5 +199,12 @@
       "id": 51
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "title": "Xenoblade 3",
+      "price": "BND $3.00",
+      "images": "/assets/w506.jpg",
+      "id": 18
+    }
+  ]
 }

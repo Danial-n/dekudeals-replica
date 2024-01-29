@@ -210,12 +210,16 @@ const Navbar = observer(() => {
         {/* NAV RIGHT */}
         <ul>
           <li>
-            <SunMoon
-              className={`bg-slate-200 dark:bg-[#212933]`}
+            <div
+              className='hover:bg-zinc-700 hover:text-white h-full flex items-center px-3'
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
-              {theme === 'light' ? 'Dark' : 'Light'}
-            </SunMoon>
+              {theme === 'light' ? (
+                <Moon />
+              ) : (
+                <Sun color='yellow' fill='yellow' />
+              )}
+            </div>
           </li>
         </ul>
       </nav>
