@@ -16,6 +16,7 @@ import {
 import { ChevronDown, ChevronUp, Grid3X3, Rows3 } from 'lucide-react';
 import layoutViewStore from '../data/layoutViewStore';
 import sortGameStore from '../data/sortGameStore';
+import filterGameStore from '../data/filterGameStore';
 
 const Page = () => {
   // Content organise button
@@ -42,6 +43,19 @@ const Page = () => {
       {word}
     </DropdownMenuItem>
   ));
+
+  //filter list
+  // sort by list
+  // const [selectedFilter, setSelectedFilter] = useState(filterWords[0]);
+  // const handleFilterSelect = (word: string) => {
+  //   filterGameStore.setSelectedFilter(word);
+  //   setSelectedFilter(word);
+  // };
+  // const FilterBy = filterWords.map((word, index) => (
+  //   <DropdownMenuItem key={index} onClick={() => handleFilterSelect(word)}>
+  //     {word}
+  //   </DropdownMenuItem>
+  // ));
 
   return (
     <div className='px-5 py-3 space-y-5 pb-12 w-full'>

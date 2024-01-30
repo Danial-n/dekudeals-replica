@@ -88,7 +88,7 @@ const Navbar = observer(() => {
     return null;
   }
 
-  // get selected item - to add in wishlist/collection
+  // get selected item
   const itemHandler = (id: number) => {
     const selectedGame = gameData.games.find((game) => game.id === id);
     if (selectedGame) {
@@ -355,6 +355,7 @@ const Navbar = observer(() => {
           </ul>
 
           {/* NAV RIGHT */}
+          {/* SEARCH - DESKTOP */}
           <ul className='h-full'>
             <li className='h-full'>
               <CollapsibleTrigger className='flex flex-row md:hidden hover:bg-zinc-700 hover:text-white h-full items-center px-3'>
@@ -402,7 +403,7 @@ const Navbar = observer(() => {
           </ul>
         </nav>
 
-        {/* SEARCH BAR (DROPDOWN) */}
+        {/* SEARCH BAR (DROPDOWN) - MOBILE */}
         <CollapsibleContent className='md:hidden'>
           <form className='flex flex-row px-2 py-1' onSubmit={handleFormSubmit}>
             <Input

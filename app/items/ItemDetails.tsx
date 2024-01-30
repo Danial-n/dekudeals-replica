@@ -3,6 +3,14 @@ import selectedGameStore from '../data/selectedGameStore';
 import { observer } from 'mobx-react';
 import { EyeOff } from 'lucide-react';
 import Link from 'next/link';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 const ItemDetails = observer(() => {
   const { price } = selectedGameStore.selectedGame;
@@ -40,7 +48,31 @@ const ItemDetails = observer(() => {
         <EyeOff size={20} />
         <p>Hide</p>
       </button>
-      <Link href='/'>Report an error on this page</Link>
+
+      <Dialog>
+        <DialogTrigger className='text-sky-500 flex'>
+          Report an error on this page
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <h3>Report an error on this page</h3>
+          </DialogHeader>
+          <p>Details</p>
+          <textarea
+            placeholder='Example: The release date is wrong'
+            className='border-2 h-[136px] p-1'
+          />
+          <p className='text-sm text-neutral-500'>
+            Feel free to be brief. Basic info about the page is automatically
+            recorded with your submission.
+          </p>
+          <DialogFooter>
+            <DialogClose className='rounded-sm bg-sky-500 hover:bg-sky-700 text-white px-3 py-2'>
+              Submit
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 });

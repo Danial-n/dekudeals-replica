@@ -21,13 +21,25 @@ import sortGameStore from '../data/sortGameStore';
 const Content = observer(() => {
   // sort by title
   const sortTitle = (
-    arr: { title: string; price: string; images: string; id: number }[]
+    arr: {
+      title: string;
+      price: string;
+      images: string;
+      id: number;
+      genre: string;
+    }[]
   ) => [...arr].sort((a, b) => a.title.localeCompare(b.title));
   const titleGameData = sortTitle(gameData.games);
 
   // sort by price
   const sortPrice = (
-    arr: { title: string; price: string; images: string; id: number }[]
+    arr: {
+      title: string;
+      price: string;
+      images: string;
+      id: number;
+      genre: string;
+    }[]
   ) => [...arr].sort((a, b) => a.price.localeCompare(b.price));
   const priceGameData = sortPrice(gameData.games);
 
@@ -36,7 +48,13 @@ const Content = observer(() => {
 
   // sorting...
   const sortGames = (gameData: {
-    games: { title: string; price: string; images: string; id: number }[];
+    games: {
+      title: string;
+      price: string;
+      images: string;
+      id: number;
+      genre: string;
+    }[];
   }) => {
     let sortedGames = [];
     switch (sortGameStore.selectedSort) {
@@ -88,7 +106,7 @@ const Content = observer(() => {
   // display for home or content page
   const pathname = usePathname();
   const atHome = pathname === '/';
-  const displayedGames = atHome ? titleGameData.slice(0, 10) : currentItems;
+  const generatedGames = atHome ? titleGameData.slice(0, 10) : currentItems;
 
   // get selected item - to add in wishlist/collection
   const itemHandler = (id: number) => {
@@ -101,18 +119,28 @@ const Content = observer(() => {
     }
   };
 
-  // const addToWishlistHandler = () => {
-  //   const { title, price, images } = selectedGameStore.selectedGame;
-  //   const selectedGame = { title, price, images };
-  //   selectedGameStore.addToWishlist(selectedGame);
-  // };
+  // FILTER FUNCTION
+  interface Game {
+    title: string;
+    price: string;
+    images: string;
+    id: number;
+    genre: string;
+  }
+  const [filterTerm, setFilterTerm] = useState('');
+  const [filterResults, setFilterResults] = useState<Game[]>([]);
+  const [games, setGames] = useState<Game[]>(generatedGames);
+  const handleInputChange = (event: { target: { value: any } }) => {
+    const value = event.target.value;
+    setFilterTerm(value);
 
-  // const wishlistStatus = selectedGameStore.isWishlistEmpty();
-  // if (wishlistStatus.isEmpty) {
-  //   console.log('Wishlist is empty');
-  // } else {
-  //   console.log('Wishlist has items:', wishlistStatus.content);
-  // }
+    // Filter games based on the Filter term
+    const results = games.filter((game) =>
+      game.genre.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setFilterResults(results);
+  };
 
   return (
     <div className='flex flex-col space-y-5 w-full'>
@@ -216,7 +244,7 @@ const Content = observer(() => {
         </div>
 
         {/* game box */}
-        {displayedGames.map((game, index) => (
+        {generatedGames.map((game, index) => (
           <div
             key={index}
             className='md:w-full'
