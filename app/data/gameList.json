@@ -67,63 +67,75 @@
       "id": 11
     },
     {
-      "title": "Celeste",
+      "title": "Gris",
       "price": "BND $5.00",
-      "images": "/assets/w500.jpg",
+      "images": "/assets/w511.jpg",
       "id": 12
     },
     {
-      "title": "Graveyard Keeper",
-      "price": "BND $5.00",
-      "images": "/assets/w501.jpg",
-      "id": 13
-    },
-    {
-      "title": "Lost in Random",
-      "price": "BND $5.00",
-      "images": "/assets/w502.jpg",
-      "id": 14
-    },
-    {
-      "title": "Lego Star Wars",
-      "price": "BND $3.00",
-      "images": "/assets/w503.jpg",
-      "id": 15
-    },
-    {
-      "title": "Subnautica",
+      "title": "Doom",
       "price": "BND $1.00",
-      "images": "/assets/w504.jpg",
-      "id": 16
+      "images": "/assets/w512.jpg",
+      "id": 30
     },
     {
-      "title": "Dragon Quest Builder",
+      "title": "Persona 5",
       "price": "BND $5.00",
-      "images": "/assets/w505.jpg",
-      "id": 17
+      "images": "/assets/w513.jpg",
+      "id": 21
     },
     {
-      "title": "Xenoblade 3",
+      "title": "Gris",
+      "price": "BND $5.00",
+      "images": "/assets/w511.jpg",
+      "id": 22
+    },
+    {
+      "title": "Doom",
+      "price": "BND $5.00",
+      "images": "/assets/w512.jpg",
+      "id": 23
+    },
+    {
+      "title": "Persona 5",
       "price": "BND $3.00",
-      "images": "/assets/w506.jpg",
-      "id": 18
+      "images": "/assets/w513.jpg",
+      "id": 24
     },
     {
-      "title": "13 Sentinel",
+      "title": "Dragon Quest 11",
       "price": "BND $1.00",
-      "images": "/assets/w507.jpg",
-      "id": 19
+      "images": "/assets/w514.jpg",
+      "id": 25
     },
     {
-      "title": "Ys Origin",
+      "title": "Cult of the Lamb",
+      "price": "BND $0.10",
+      "images": "/assets/w515.jpg",
+      "id": 26
+    },
+    {
+      "title": "Citizen Sleeper",
+      "price": "BND $9.00",
+      "images": "/assets/w516.jpg",
+      "id": 27
+    },
+    {
+      "title": "Devil May Cry 3",
+      "price": "BND $6.00",
+      "images": "/assets/w517.jpg",
+      "id": 28
+    },
+    {
+      "title": "Mario Odyssey",
       "price": "BND $3.00",
-      "images": "/assets/w508.jpg",
-      "id": 20
+      "images": "/assets/w518.jpg",
+      "id": 29
     },
     {
-      "title": "Trials of Mana",
+      "title": "Super Smash Bros",
       "price": "BND $1.00",
-      "images": "/assets/w509.jpg",
+      "images": "/assets/w519.jpg",
       "id": 30
     },
     {
@@ -135,68 +147,116 @@
     {
       "title": "Celeste",
       "price": "BND $5.00",
-      "images": "/assets/w500.jpg",
-      "id": 41
+      "images": "/assets/w511.jpg",
+      "id": 32
     },
     {
       "title": "Graveyard Keeper",
       "price": "BND $5.00",
-      "images": "/assets/w501.jpg",
-      "id": 42
+      "images": "/assets/w511.jpg",
+      "id": 33
     },
     {
       "title": "Lost in Random",
       "price": "BND $5.00",
-      "images": "/assets/w502.jpg",
-      "id": 43
+      "images": "/assets/w512.jpg",
+      "id": 34
     },
     {
       "title": "Lego Star Wars",
       "price": "BND $3.00",
-      "images": "/assets/w503.jpg",
-      "id": 44
+      "images": "/assets/w513.jpg",
+      "id": 35
     },
     {
       "title": "Subnautica",
       "price": "BND $1.00",
-      "images": "/assets/w504.jpg",
-      "id": 45
+      "images": "/assets/w514.jpg",
+      "id": 36
     },
     {
       "title": "Dragon Quest Builder",
       "price": "BND $5.00",
-      "images": "/assets/w505.jpg",
-      "id": 46
+      "images": "/assets/w515.jpg",
+      "id": 37
     },
     {
       "title": "Xenoblade 3",
       "price": "BND $3.00",
-      "images": "/assets/w506.jpg",
-      "id": 47
+      "images": "/assets/w516.jpg",
+      "id": 38
     },
     {
       "title": "13 Sentinel",
       "price": "BND $1.00",
-      "images": "/assets/w507.jpg",
-      "id": 48
+      "images": "/assets/w517.jpg",
+      "id": 39
     },
     {
       "title": "Ys Origin",
       "price": "BND $3.00",
-      "images": "/assets/w508.jpg",
-      "id": 49
+      "images": "/assets/w518.jpg",
+      "id": 40
     },
     {
       "title": "Trials of Mana",
       "price": "BND $1.00",
-      "images": "/assets/w509.jpg",
+      "images": "/assets/w519.jpg",
       "id": 50
     },
     {
-      "title": "Bayonetta",
+      "title": "Gris",
+      "price": "BND $5.00",
+      "images": "/assets/w511.jpg",
+      "id": 72
+    },
+    {
+      "title": "Doom",
+      "price": "BND $5.00",
+      "images": "/assets/w512.jpg",
+      "id": 73
+    },
+    {
+      "title": "Persona 5",
+      "price": "BND $3.00",
+      "images": "/assets/w513.jpg",
+      "id": 74
+    },
+    {
+      "title": "Dragon Quest 11",
       "price": "BND $1.00",
-      "images": "/assets/w510.jpg",
-      "id": 51
+      "images": "/assets/w514.jpg",
+      "id": 75
+    },
+    {
+      "title": "Cult of the Lamb",
+      "price": "BND $0.10",
+      "images": "/assets/w515.jpg",
+      "id": 76
+    },
+    {
+      "title": "Citizen Sleeper",
+      "price": "BND $9.00",
+      "images": "/assets/w516.jpg",
+      "id": 77
+    },
+    {
+      "title": "Devil May Cry 3",
+      "price": "BND $6.00",
+      "images": "/assets/w517.jpg",
+      "id": 78
+    },
+    {
+      "title": "Mario Odyssey",
+      "price": "BND $3.00",
+      "images": "/assets/w518.jpg",
+      "id": 79
+    },
+    {
+      "title": "Super Smash Bros",
+      "price": "BND $1.00",
+      "images": "/assets/w519.jpg",
+      "id": 80
     }
   ],
   "wishlist": [

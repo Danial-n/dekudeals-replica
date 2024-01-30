@@ -19,7 +19,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
@@ -31,8 +30,35 @@ import {
 import { Input } from '@/components/ui/input';
 import consoleStore from '../data/consoleStore';
 import { observer } from 'mobx-react';
+import gameData from '../data/gameList.json';
+import selectedGameStore from '../data/selectedGameStore';
 
 const Navbar = observer(() => {
+  // SEARCH FUNCTION
+  interface Game {
+    title: string;
+    price: string;
+    images: string;
+    id: number;
+  }
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Game[]>([]);
+  const [games, setGames] = useState<Game[]>(gameData.games);
+  const handleInputChange = (event: { target: { value: any } }) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+
+    // Filter games based on the search term
+    const results = games.filter((game) =>
+      game.title.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setSearchResults(results);
+  };
+  const handleFormSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+  };
+
   // COUNTRY LIST
   const ctryList = [
     { name: 'Brunei', code: 'BN' },
@@ -61,6 +87,17 @@ const Navbar = observer(() => {
   if (!mounted) {
     return null;
   }
+
+  // get selected item - to add in wishlist/collection
+  const itemHandler = (id: number) => {
+    const selectedGame = gameData.games.find((game) => game.id === id);
+    if (selectedGame) {
+      selectedGameStore.updateSelectedGame(selectedGame);
+      console.log(selectedGame);
+    } else {
+      console.error(`No game found with id ${id}`);
+    }
+  };
 
   return (
     <div className='w-screen flex flex-col'>
@@ -306,7 +343,7 @@ const Navbar = observer(() => {
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link
-                      href='/content'
+                      href='/wishlist'
                       className='text-black dark:text-white'
                     >
                       Collection
@@ -323,12 +360,40 @@ const Navbar = observer(() => {
               <CollapsibleTrigger className='flex flex-row md:hidden hover:bg-zinc-700 hover:text-white h-full items-center px-3'>
                 Search <Search />
               </CollapsibleTrigger>
-              <form className='hidden md:visible md:flex flex-row px-2 py-1'>
-                <Input
-                  type='search'
-                  placeholder='Search'
-                  className='border-solid border-2 w-[360px] bg-white text-black'
-                />
+              <form
+                className='hidden md:visible md:flex flex-row px-2 py-1'
+                onSubmit={handleFormSubmit}
+              >
+                <div>
+                  <Input
+                    type='search'
+                    placeholder='Search'
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    className='border-solid border-2 w-[360px] bg-white text-black relative'
+                  />
+                  {searchTerm && (
+                    <div className='space-y-3 overflow-auto absolute w-[360px] pt-3 pl-3 bg-white dark:bg-black dark:text-white hidden md:block'>
+                      {searchResults.slice(0, 10).map((result, index) => (
+                        <div key={index}>
+                          <Link
+                            href='/items'
+                            onClick={() => itemHandler(result.id)}
+                            className='flex space-x-3'
+                          >
+                            <Image
+                              src={result.images}
+                              alt='img'
+                              width={80}
+                              height={80}
+                            />
+                            <p>{result.title}</p>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
                 <button className='bg-sky-500 w-12 rounded-e-md flex justify-center items-center'>
                   <Search color='white' />
                 </button>
@@ -337,18 +402,33 @@ const Navbar = observer(() => {
           </ul>
         </nav>
 
-        {/* SEARCH BAR */}
-        <CollapsibleContent>
-          <form className='flex flex-row px-2 py-1 '>
+        {/* SEARCH BAR (DROPDOWN) */}
+        <CollapsibleContent className='md:hidden'>
+          <form className='flex flex-row px-2 py-1' onSubmit={handleFormSubmit}>
             <Input
               type='search'
               placeholder='Search'
-              className='border-solid border-2  border-sky-500'
+              value={searchTerm}
+              onChange={handleInputChange}
+              className='border-solid border-2 border-sky-500 '
             />
-            <button className='bg-sky-500 w-12 rounded-e-md flex justify-center items-center'>
+            <button
+              type='submit'
+              className='bg-sky-500 w-12 rounded-e-md flex justify-center items-center'
+            >
               <ChevronsRight color='white' />
             </button>
           </form>
+          {searchTerm && (
+            <div className='w-[700px] space-y-3 overflow-auto absolute pt-3 pl-3 bg-white dark:bg-black dark:text-white '>
+              {searchResults.slice(0, 10).map((result, index) => (
+                <div key={index} className='flex space-x-3'>
+                  <Image src={result.images} alt='img' width={80} height={80} />
+                  <p>{result.title}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </CollapsibleContent>
       </Collapsible>
     </div>

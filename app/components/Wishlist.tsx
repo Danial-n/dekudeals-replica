@@ -35,9 +35,6 @@ const Wishlist = () => {
     }
   };
 
-  // get selected title
-  const { title } = selectedGameStore.selectedGame;
-
   return (
     <div className='w-screen'>
       <div className='sm:flex  justify-start sm:space-x-5 grid grid-cols-2'>
@@ -67,15 +64,12 @@ const Wishlist = () => {
               </button>
               {/* EDIT DETAILS */}
               <Dialog>
-                <DialogTrigger
-                  className=' border-b rounded-sm p-1 border-yellow-500 text-xs text-sky-500'
-                  onClick={() => itemHandler(game.id)}
-                >
+                <DialogTrigger className=' border-b rounded-sm p-1 border-yellow-500 text-xs text-sky-500'>
                   {'(edit details)'}
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader className='border-b p-3'>
-                    <h3>{title}</h3>
+                    <h3>{game.title}</h3>
                   </DialogHeader>
                   <div>
                     <p>Desire price</p>

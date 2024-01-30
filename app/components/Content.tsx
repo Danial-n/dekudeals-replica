@@ -149,7 +149,7 @@ const Content = observer(() => {
       <div
         className={`md:w-full ${
           layoutViewStore.isLayout
-            ? 'w-full grid grid-cols-2 gap-x-5 gap-y-10 pb-8 md:grid-cols-6'
+            ? 'w-full grid grid-cols-2 sm:grid-cols-3 gap-x-5 gap-y-10 pb-8 md:grid-cols-6'
             : 'pb-8 space-y-5'
         }`}
       >
