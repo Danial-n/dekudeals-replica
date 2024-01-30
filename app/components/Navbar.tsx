@@ -422,9 +422,20 @@ const Navbar = observer(() => {
           {searchTerm && (
             <div className='w-[700px] space-y-3 overflow-auto absolute pt-3 pl-3 bg-white dark:bg-black dark:text-white '>
               {searchResults.slice(0, 10).map((result, index) => (
-                <div key={index} className='flex space-x-3'>
-                  <Image src={result.images} alt='img' width={80} height={80} />
-                  <p>{result.title}</p>
+                <div key={index}>
+                  <Link
+                    href='/items'
+                    onClick={() => itemHandler(result.id)}
+                    className='flex space-x-3'
+                  >
+                    <Image
+                      src={result.images}
+                      alt='img'
+                      width={80}
+                      height={80}
+                    />
+                    <p>{result.title}</p>
+                  </Link>
                 </div>
               ))}
             </div>
