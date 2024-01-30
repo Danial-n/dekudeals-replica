@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='flex flex-col space-y-3 text-sm font-light leading-relaxed md:w-10/12 2xl:w-[1080px]'>
         <div>
           <p>
-            Deku Deals is made by <Link href='/'>Team Deku</Link>
+            Deku Deals is made by <Link href='/about'>Team Deku</Link>
           </p>
           <p>
             Get in touch at <Link href='/'>hello@dekudeals.com</Link>
