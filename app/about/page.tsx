@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 const about = () => {
   return (
-    <div className='px-5 py-3 space-y-5 pb-16 md:w-[60%]'>
-      <div className='space-y-5'>
+    <div className='px-5 py-3 space-y-5 pb-16 md:w-[768px]'>
+      <div className='space-y-5 pb-10'>
         <h2>About</h2>
         <p>
           Hi! We&apos;re glad you&apos;re here and on your way to finding your
@@ -27,6 +27,7 @@ const about = () => {
           and Xbox as well.
         </p>
       </div>
+
       <div className='space-y-5'>
         <h2>Who is Team Deku?</h2>
         <div className='w-full flex justify-center'>
@@ -49,14 +50,19 @@ const about = () => {
               <div className=' px-3 pt-3 '>
                 <h3>Micheal</h3>
               </div>
-              <div className='p-3 '>
-                <p className='border-t-2 pt-3'>
+              <div className='p-3 space-y-3'>
+                <p className='border-t-2 pt-3 text-xs'>
                   Michael is the founder and fearless leader of Deku Deals.
                   He&apos;s a software developer, indie game maker, and world
                   traveler. These days he can be found in Seattle with his wife,
                   son, and pet tarrasque &quot;Alonzo&quot;.
                 </p>
-                <p>Desert island game? Outer Wilds</p>
+                <p className='text-sky-500 text-xs'>
+                  <span className='font-bold text-black dark:text-white'>
+                    Desert island game?
+                  </span>{' '}
+                  Outer Wilds
+                </p>
               </div>
             </div>
           </div>
@@ -71,14 +77,19 @@ const about = () => {
               <div className=' px-3 pt-3 '>
                 <h3>Andrew</h3>
               </div>
-              <div className='p-3 '>
-                <p className='border-t-2 pt-3'>
+              <div className='p-3 space-y-3'>
+                <p className='border-t-2 pt-3 text-xs'>
                   Michael is the founder and fearless leader of Deku Deals.
                   He&apos;s a software developer, indie game maker, and world
                   traveler. These days he can be found in Seattle with his wife,
                   son, and pet tarrasque &quot;Alonzo&quot;.
                 </p>
-                <p>Desert island game? Outer Wilds</p>
+                <p className='text-sky-500 text-xs'>
+                  <span className='font-bold text-black dark:text-white'>
+                    Desert island game?
+                  </span>{' '}
+                  Outer Wilds
+                </p>
               </div>
             </div>
           </div>
@@ -93,14 +104,19 @@ const about = () => {
               <div className=' px-3 pt-3 '>
                 <h3>Scott</h3>
               </div>
-              <div className='p-3 '>
-                <p className='border-t-2 pt-3'>
+              <div className='p-3 space-y-3'>
+                <p className='border-t-2 pt-3 text-xs'>
                   Michael is the founder and fearless leader of Deku Deals.
                   He&apos;s a software developer, indie game maker, and world
                   traveler. These days he can be found in Seattle with his wife,
                   son, and pet tarrasque &quot;Alonzo&quot;.
                 </p>
-                <p>Desert island game? Outer Wilds</p>
+                <p className='text-sky-500 text-xs'>
+                  <span className='font-bold text-black dark:text-white'>
+                    Desert island game?
+                  </span>{' '}
+                  Outer Wilds
+                </p>
               </div>
             </div>
           </div>
