@@ -23,7 +23,7 @@ export default function RootLayout({
         <Darkmode attribute='class' defaultTheme='system' enableSystem>
           <Navbar />
           <div className='flex justify-center'>
-            <div className='2xl:flex 2xl:justify-center 2xl:items-center 2xl:w-[1080px]'>
+            <div className='2xl:flex 2xl:justify-center 2xl:items-center 2xl:w-[1080px] w-screen'>
               {children}
             </div>
           </div>

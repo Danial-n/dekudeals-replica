@@ -62,8 +62,8 @@ const Wishlist = () => {
             </Link>
             <div className='flex flex-col border-x border-yellow-500 rounded-sm'>
               {/* REMOVE FROM WISHLIST BTN */}
-              <button className=' border-t rounded-sm p-1 border-yellow-500 hover:bg-yellow-500 hover:text-white'>
-                On Wishlist
+              <button className=' border-t rounded-t-sm p-1 border-yellow-500 hover:bg-yellow-500 hover:text-white'>
+                On wishlist
               </button>
               {/* EDIT DETAILS */}
               <Dialog>
@@ -128,7 +128,7 @@ const Wishlist = () => {
 
             {/* ADD TO BTN */}
             <DropdownMenu>
-              <DropdownMenuTrigger className='text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center '>
+              <DropdownMenuTrigger className='text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center w-28 justify-center'>
                 Add to <ChevronDown />
               </DropdownMenuTrigger>
               <DropdownMenuContent>

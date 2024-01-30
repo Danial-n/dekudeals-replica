@@ -298,7 +298,7 @@ const Navbar = observer(() => {
                 <DropdownMenuContent>
                   <DropdownMenuItem>
                     <Link
-                      href='/content'
+                      href='/wishlist'
                       className='text-black dark:text-white'
                     >
                       Wishlist

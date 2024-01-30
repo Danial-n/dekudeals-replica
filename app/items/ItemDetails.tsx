@@ -1,6 +1,8 @@
 import React from 'react';
 import selectedGameStore from '../data/selectedGameStore';
 import { observer } from 'mobx-react';
+import { EyeOff } from 'lucide-react';
+import Link from 'next/link';
 
 const ItemDetails = observer(() => {
   const { price } = selectedGameStore.selectedGame;
@@ -22,7 +24,23 @@ const ItemDetails = observer(() => {
       </p>
       <div>
         <p className='underline'>How Long To Beat:</p>
+        <ul className='list-disc pl-5'>
+          <li> Main Story: 62½ hours</li>
+          <li> Main + Extra: 102 hours</li>
+          <li> Completionist: 170 hours</li>
+        </ul>
       </div>
+      <p>Play modes: TV, Tabletop, Handheld</p>
+      <p>
+        Languages: Japanese, English, Spanish, French, German, Italian, Korean,
+        Chinese (Simplified), Chinese (Traditional)
+      </p>
+      <p>Platforms: Nintendo Switch</p>
+      <button className='border rounded-sm flex justify-start items-center w-32 h-10 pl-3 space-x-1 hover:bg-neutral-500 hover:text-white'>
+        <EyeOff size={20} />
+        <p>Hide</p>
+      </button>
+      <Link href='/'>Report an error on this page</Link>
     </div>
   );
 });

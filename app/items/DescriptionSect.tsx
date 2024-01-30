@@ -6,8 +6,11 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
+import selectedGameStore from '../data/selectedGameStore';
 
 const DescriptionSect = () => {
+  const { title, images } = selectedGameStore.selectedGame;
+
   return (
     <div className='text-3xl space-y-5'>
       {/* DESCRIPTION */}
@@ -76,16 +79,18 @@ const DescriptionSect = () => {
           <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent className='pt-5'>
-          <div className='flex text-base space-x-5'>
-            <Image
-              src='/assets/w500.jpg'
-              width={142}
-              height={142}
-              alt='img'
-              className=''
-            />
-            <p>DLC 1 VOL 1</p>
-            <p>BND$1.99</p>
+          <div className='flex text-base justify-between'>
+            <div className='flex space-x-3'>
+              <Image
+                src={images}
+                width={142}
+                height={142}
+                alt='img'
+                className=''
+              />
+              <p>{title} DLC 1 VOL 1</p>
+            </div>
+            <p>$1.99</p>
           </div>
         </CollapsibleContent>
       </Collapsible>
@@ -97,16 +102,19 @@ const DescriptionSect = () => {
           <ChevronDown size={40} />
         </CollapsibleTrigger>
         <CollapsibleContent className='pt-5'>
-          <div className='flex text-base space-x-5'>
-            <Image
-              src='/assets/w500.jpg'
-              width={142}
-              height={142}
-              alt='img'
-              className=''
-            />
-            <p>Ultimate Edition</p>
-            <p>BND$9.99</p>
+          <div className='flex text-base justify-between'>
+            <div className='flex space-x-3'>
+              <Image
+                src={images}
+                width={142}
+                height={142}
+                alt='img'
+                className=''
+              />
+              <p>{title} Ultimate Edition</p>
+            </div>
+
+            <p>$9.99</p>
           </div>
         </CollapsibleContent>
       </Collapsible>

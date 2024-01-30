@@ -18,7 +18,7 @@ import sortGameStore from '../data/sortGameStore';
 import Link from 'next/link';
 import Wishlist from '../components/Wishlist';
 
-const wishpage = () => {
+const Wishpage = () => {
   // Content organise button
   const [selectedButton, setSelectedButton] = React.useState('button2');
   const handleButtonClick = (button: React.SetStateAction<string>) => {
@@ -293,4 +293,4 @@ const wishpage = () => {
   );
 };
 
-export default wishpage;
+export default Wishpage;

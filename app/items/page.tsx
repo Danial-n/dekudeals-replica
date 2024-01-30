@@ -68,7 +68,7 @@ const items = observer(() => {
           <div className='flex flex-col space-y-3'>
             <div className='flex flex-row-reverse '>
               <DropdownMenu>
-                <DropdownMenuTrigger className='border border-yellow-500 rounded-md w-48 h-9 flex justify-center items-center'>
+                <DropdownMenuTrigger className='border border-neutral-500 rounded-md w-44 h-10 flex justify-center items-center hover:bg-neutral-500 hover:text-white'>
                   Add to <ChevronDown />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
