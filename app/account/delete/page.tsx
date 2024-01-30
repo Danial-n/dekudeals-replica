@@ -23,8 +23,11 @@ const accountdelete = () => {
             name='deleteAccount'
             className='border border-neutral-200 rounded-md h-8 w-full'
           />
+
           <button className='bg-red-400 text-white px-3 py-2 rounded-sm'>
-            Delete my account
+            <Link href='/' className='text-white'>
+              Delete my account
+            </Link>
           </button>
         </div>
       </form>

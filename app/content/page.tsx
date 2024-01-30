@@ -117,7 +117,7 @@ const Page = () => {
           {/* SORT BY */}
           <DropdownMenu>
             <DropdownMenuTrigger className='border border-neutral-200 rounded-md w-44 h-9 flex justify-center items-center text-sm'>
-              Sort by: Sale start time
+              Sort by: {selectedSort}
             </DropdownMenuTrigger>
             <DropdownMenuContent>{sortBy}</DropdownMenuContent>
           </DropdownMenu>

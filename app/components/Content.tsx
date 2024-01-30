@@ -17,13 +17,14 @@ import {
 import ReactPaginate from 'react-paginate';
 import selectedGameStore from '../data/selectedGameStore';
 import sortGameStore from '../data/sortGameStore';
+import currencyStore from '../data/currencyStore';
 
 const Content = observer(() => {
   // sort by title
   const sortTitle = (
     arr: {
       title: string;
-      price: string;
+      price: { dollar: string; yen: string };
       images: string;
       id: number;
       genre: string;
@@ -31,16 +32,22 @@ const Content = observer(() => {
   ) => [...arr].sort((a, b) => a.title.localeCompare(b.title));
   const titleGameData = sortTitle(gameData.games);
 
+  // CURRENCY SELECTION
+  const newPrice = currencyStore.selectedCurrency;
+  console.log('new price is ', newPrice);
   // sort by price
   const sortPrice = (
     arr: {
       title: string;
-      price: string;
+      price: { dollar: string; yen: string };
       images: string;
       id: number;
       genre: string;
     }[]
-  ) => [...arr].sort((a, b) => a.price.localeCompare(b.price));
+  ) =>
+    [...arr].sort((a, b) =>
+      (a.price as any)[newPrice].localeCompare((b.price as any)[newPrice])
+    );
   const priceGameData = sortPrice(gameData.games);
 
   // sort by discount
@@ -50,7 +57,7 @@ const Content = observer(() => {
   const sortGames = (gameData: {
     games: {
       title: string;
-      price: string;
+      price: { dollar: string; yen: string };
       images: string;
       id: number;
       genre: string;
@@ -68,7 +75,7 @@ const Content = observer(() => {
       //   sortedGames = sortDiscount(gameData.games);
       //   break;
       default:
-        sortedGames = sortPrice(gameData.games);
+        sortedGames = sortTitle(gameData.games);
         return sortedGames;
     }
   };
@@ -122,7 +129,7 @@ const Content = observer(() => {
   // FILTER FUNCTION
   interface Game {
     title: string;
-    price: string;
+    price: { dollar: string; yen: string };
     images: string;
     id: number;
     genre: string;
@@ -278,26 +285,27 @@ const Content = observer(() => {
                     layoutViewStore.isLayout ? '' : 'order-3'
                   }`}
                 >
-                  {game.price}
+                  {(game.price as any)[newPrice]}
                 </p>
+                {!hideFromHome && (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger
+                      onClick={(e) => e.stopPropagation()}
+                      className={`text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center 
+                      ${layoutViewStore.isLayout ? '' : 'order-2'}`}
+                    >
+                      Add to <ChevronDown />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent onClick={(e) => e.stopPropagation()}>
+                      <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
+                      <DropdownMenuItem>Add to collection</DropdownMenuItem>
+                      <DropdownMenuItem>Rating</DropdownMenuItem>
+                      <DropdownMenuItem>Hide</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
               </div>
             </Link>
-            {!hideFromHome && (
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  className={`text-black dark:text-white h-10 border border-neutral-200 px-3 rounded-md flex hover:bg-neutral-400 hover:text-white items-center 
-                      ${layoutViewStore.isLayout ? '' : 'order-2'}`}
-                >
-                  Add to <ChevronDown />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>Add to wishlist</DropdownMenuItem>
-                  <DropdownMenuItem>Add to collection</DropdownMenuItem>
-                  <DropdownMenuItem>Rating</DropdownMenuItem>
-                  <DropdownMenuItem>Hide</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
           </div>
         ))}
 

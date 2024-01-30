@@ -2,343 +2,490 @@
   "games": [
     {
       "title": "Celeste",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w500.jpg",
       "id": 1,
       "genre": "action"
     },
     {
       "title": "Graveyard Keeper",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$4.00",
+        "yen": " ¥600"
+      },
       "images": "/assets/w501.jpg",
       "id": 2,
       "genre": "action"
     },
     {
       "title": "Lost in Random",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$9.00",
+        "yen": " ¥100"
+      },
       "images": "/assets/w502.jpg",
       "id": 3,
       "genre": "action"
     },
     {
       "title": "Lego Star Wars",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$9.00",
+        "yen": " ¥100"
+      },
       "images": "/assets/w503.jpg",
       "id": 4,
       "genre": "action"
     },
     {
       "title": "Subnautica",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$9.00",
+        "yen": " ¥100"
+      },
       "images": "/assets/w504.jpg",
       "id": 5,
       "genre": "action"
     },
     {
       "title": "Dragon Quest Builder",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$9.00",
+        "yen": " ¥100"
+      },
       "images": "/assets/w505.jpg",
       "id": 6,
       "genre": "action"
     },
     {
       "title": "Xenoblade 3",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$9.00",
+        "yen": " ¥100"
+      },
       "images": "/assets/w506.jpg",
       "id": 7,
       "genre": "action"
     },
     {
       "title": "13 Sentinel",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$9.00",
+        "yen": " ¥100"
+      },
       "images": "/assets/w507.jpg",
       "id": 8,
       "genre": "action"
     },
     {
       "title": "Ys Origin",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w508.jpg",
       "id": 9,
       "genre": "action"
     },
     {
       "title": "Trials of Mana",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w509.jpg",
       "id": 10,
       "genre": "action"
     },
     {
       "title": "Bayonetta",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w510.jpg",
       "id": 11,
       "genre": "action"
     },
     {
       "title": "Gris",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w511.jpg",
       "id": 12,
       "genre": "action"
     },
     {
       "title": "Doom",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w512.jpg",
       "id": 30,
       "genre": "action"
     },
     {
       "title": "Persona 5",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w513.jpg",
       "id": 21,
       "genre": "action"
     },
     {
       "title": "Dragon Quest 11",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$6.00",
+        "yen": " ¥800"
+      },
       "images": "/assets/w514.jpg",
       "id": 25,
       "genre": "action"
     },
     {
       "title": "Cult of the Lamb",
-      "price": "$0.10",
+      "price": {
+        "dollar": "$0.40",
+        "yen": " ¥600"
+      },
       "images": "/assets/w515.jpg",
       "id": 26,
       "genre": "action"
     },
     {
       "title": "Citizen Sleeper",
-      "price": "$9.00",
+      "price": {
+        "dollar": "$0.40",
+        "yen": " ¥600"
+      },
       "images": "/assets/w516.jpg",
       "id": 27,
       "genre": "action"
     },
     {
       "title": "Devil May Cry 3",
-      "price": "$6.00",
+      "price": {
+        "dollar": "$0.40",
+        "yen": " ¥600"
+      },
       "images": "/assets/w517.jpg",
       "id": 28,
       "genre": "action"
     },
     {
       "title": "Mario Odyssey",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$0.40",
+        "yen": " ¥600"
+      },
       "images": "/assets/w518.jpg",
       "id": 29,
       "genre": "action"
     },
     {
       "title": "Super Smash Bros",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$0.40",
+        "yen": " ¥600"
+      },
       "images": "/assets/w519.jpg",
       "id": 30,
       "genre": "multiplayer"
     },
     {
       "title": "Bayonetta",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w520.jpg",
       "id": 31,
       "genre": "action"
     },
     {
       "title": "Xenoblade 2",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w530.jpg",
       "id": 32,
       "genre": "action"
     },
     {
       "title": "Zelda Link Awakening",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w521.jpg",
       "id": 33,
       "genre": "action"
     },
     {
       "title": "Super Mario 3D World",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$5.00",
+        "yen": " ¥700"
+      },
       "images": "/assets/w522.jpg",
       "id": 34,
       "genre": "action"
     },
     {
       "title": "Zelda BOTW",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$5.00",
+        "yen": " ¥700"
+      },
       "images": "/assets/w523.jpg",
       "id": 35,
       "genre": "action"
     },
     {
       "title": "Donkey Kong",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$5.00",
+        "yen": " ¥700"
+      },
       "images": "/assets/w524.jpg",
       "id": 36,
       "genre": "action"
     },
     {
       "title": "Hollow Knight",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$5.00",
+        "yen": " ¥700"
+      },
       "images": "/assets/w525.jpg",
       "id": 37,
       "genre": "action"
     },
     {
       "title": "Kirby and the Forgotten Land",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$5.00",
+        "yen": " ¥700"
+      },
       "images": "/assets/w526.jpg",
       "id": 38,
       "genre": "action"
     },
     {
       "title": "Super Mario Bros Deluxe",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$5.00",
+        "yen": " ¥700"
+      },
       "images": "/assets/w527.jpg",
       "id": 39,
       "genre": "action"
     },
     {
       "title": "Metroid Dread",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w528.jpg",
       "id": 40,
       "genre": "action"
     },
     {
       "title": "Xenoblade DE",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w529.jpg",
       "id": 50,
       "genre": "action"
     },
     {
       "title": "Zelda TOTK",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w531.jpg",
       "id": 72,
       "genre": "action"
     },
     {
       "title": "Astral Chain",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w532.jpg",
       "id": 73,
       "genre": "action"
     },
     {
       "title": "Octopath Traveler",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w533.jpg",
       "id": 74,
       "genre": "action"
     },
     {
       "title": "Fire Emblem Three House",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w534.jpg",
       "id": 75,
       "genre": "action"
     },
     {
       "title": "Stardew Valley",
-      "price": "$0.10",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w535.jpg",
       "id": 76,
       "genre": "action"
     },
     {
       "title": "Animal Crossin",
-      "price": "$9.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w536.jpg",
       "id": 77,
       "genre": "action"
     },
     {
       "title": "Zelda HD",
-      "price": "$6.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w537.jpg",
       "id": 78,
       "genre": "action"
     },
     {
       "title": "Cuphead",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w538.jpg",
       "id": 79,
       "genre": "action"
     },
     {
       "title": "Pokemon Legend Arceus",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w539.jpg",
       "id": 80,
       "genre": "multiplayer"
     },
     {
       "title": "Ori 2",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w541.jpg",
       "id": 82,
       "genre": "action"
     },
     {
       "title": "Super Mario Party",
-      "price": "$5.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w542.jpg",
       "id": 83,
       "genre": "action"
     },
     {
       "title": "Untitled Goose Game",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w543.jpg",
       "id": 84,
       "genre": "action"
     },
     {
       "title": "Ori",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w544.jpg",
       "id": 85,
       "genre": "action"
     },
     {
       "title": "Mario Party",
-      "price": "$0.10",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w545.jpg",
       "id": 86,
       "genre": "action"
     },
     {
       "title": "Captain Toad",
-      "price": "$9.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w546.jpg",
       "id": 87,
       "genre": "action"
     },
     {
       "title": "Dead Cells",
-      "price": "$6.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w547.jpg",
       "id": 88,
       "genre": "action"
     },
     {
       "title": "Witcher 3",
-      "price": "$3.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w548.jpg",
       "id": 89,
       "genre": "action"
     },
     {
       "title": "Super Mario Bros Wonder",
-      "price": "$1.00",
+      "price": {
+        "dollar": "$2.00",
+        "yen": " ¥400"
+      },
       "images": "/assets/w549.jpg",
       "id": 90,
       "genre": "multiplayer"
@@ -347,7 +494,7 @@
   "wishlist": [
     {
       "title": "Xenoblade 3",
-      "price": "$3.00",
+      "price": "3.00",
       "images": "/assets/w506.jpg",
       "id": 18
     }

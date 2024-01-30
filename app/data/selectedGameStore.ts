@@ -3,7 +3,7 @@ import { makeObservable, observable, action } from 'mobx';
 class selectedGameStore {
   selectedGame = {
     title: '',
-    price: '',
+    price: { dollar: '', yen: '' },
     images: '',
   };
   static loadWishlistFromLocal: any;
@@ -18,7 +18,7 @@ class selectedGameStore {
 
   updateSelectedGame(selectedGame: {
     title: string;
-    price: string;
+    price: { dollar: string; yen: string };
     images: string;
   }) {
     this.selectedGame = selectedGame;

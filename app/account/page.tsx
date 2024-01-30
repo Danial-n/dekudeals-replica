@@ -57,6 +57,7 @@ const account = () => {
               type='text'
               name='email'
               className='border border-neutral-200 rounded-md h-10 pl-3'
+              value='usersacc@gmail.com'
             />
           </div>
           <div className='flex flex-col space-y-2'>

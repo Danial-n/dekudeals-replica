@@ -32,12 +32,13 @@ import consoleStore from '../data/consoleStore';
 import { observer } from 'mobx-react';
 import gameData from '../data/gameList.json';
 import selectedGameStore from '../data/selectedGameStore';
+import currencyStore from '../data/currencyStore';
 
 const Navbar = observer(() => {
   // SEARCH FUNCTION
   interface Game {
     title: string;
-    price: string;
+    price: { dollar: string; yen: string };
     images: string;
     id: number;
   }
@@ -72,11 +73,20 @@ const Navbar = observer(() => {
   const ctry = ctryList.map((country, index) => (
     <DropdownMenuItem
       key={index}
-      onClick={() => handleCountrySelect(country.code)}
+      onClick={() => {
+        handleCountrySelect(country.code), handleCurrencySelect(country.code);
+      }}
     >
       {country.name}
     </DropdownMenuItem>
   ));
+
+  // const sortWords = ['Name', 'Price', 'Discount'];
+  const [selectedCurrency, setSelectedCurrency] = useState(ctryList[0].code);
+  const handleCurrencySelect = (word: string) => {
+    currencyStore.setSelectedCurrency(word);
+    setSelectedCurrency(word);
+  };
 
   // DarkMode
   const [mounted, setMounted] = useState(false);

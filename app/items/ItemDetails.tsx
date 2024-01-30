@@ -11,15 +11,19 @@ import {
   DialogHeader,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import currencyStore from '../data/currencyStore';
 
 const ItemDetails = observer(() => {
   const { price } = selectedGameStore.selectedGame;
+
+  // CURRENCY SELECTION
+  const newPrice = currencyStore.selectedCurrency;
 
   return (
     <div className='flex flex-col space-y-3 '>
       <p className='text-3xl'>Details</p>
       <p>Demo Available</p>
-      <p>MSRP: {price}</p>
+      <p>MSRP: {(price as any)[newPrice]}</p>
       <p>Released: February 15, 2020</p>
       <p>Genre: Action, Platformer</p>
       <p>Developer: Matt Makes Games</p>

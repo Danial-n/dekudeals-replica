@@ -18,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import layoutViewStore from '../data/layoutViewStore';
+import currencyStore from '../data/currencyStore';
 
 const items = observer(() => {
   // get title and img
@@ -34,6 +35,9 @@ const items = observer(() => {
       console.error(`No game found with id ${id}`);
     }
   };
+
+  // CURRENCY SELECTION
+  const newPrice = currencyStore.selectedCurrency;
 
   return (
     <div className='px-5 py-3 w-screen pb-20'>
@@ -117,7 +121,9 @@ const items = observer(() => {
                 />
                 <div className='md:w-full flex flex-col md:justify-between text-left'>
                   <p>{game.title}</p>
-                  <p className='text-black dark:text-white'>{game.price}</p>
+                  <p className='text-black dark:text-white'>
+                    {(game.price as any)[newPrice]}
+                  </p>
                 </div>
               </Link>
             </div>

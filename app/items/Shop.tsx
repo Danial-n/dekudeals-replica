@@ -2,9 +2,13 @@ import { observer } from 'mobx-react';
 import Link from 'next/link';
 import React from 'react';
 import selectedGameStore from '../data/selectedGameStore';
+import currencyStore from '../data/currencyStore';
 
 const Shop = observer(() => {
   const { price } = selectedGameStore.selectedGame;
+
+  // CURRENCY SELECTION
+  const newPrice = currencyStore.selectedCurrency;
 
   return (
     <div>
@@ -15,7 +19,7 @@ const Shop = observer(() => {
         <div>
           <div className='bg-sky-600 text-white py-3 px-5 rounded-sm'>
             <Link href='/' className='text-white'>
-              {price}
+              {(price as any)[newPrice]}
             </Link>
           </div>
         </div>
@@ -26,7 +30,7 @@ const Shop = observer(() => {
         <div>
           <div className='border border-neutral-600 py-3 px-5 rounded-sm'>
             <Link href='/' className='text-neutral-600'>
-              {price}
+              {(price as any)[newPrice]}
             </Link>
           </div>
         </div>
@@ -37,7 +41,7 @@ const Shop = observer(() => {
         <div>
           <div className='border border-neutral-600 py-3 px-5 rounded-sm'>
             <Link href='/' className='text-neutral-600'>
-              {price}
+              {(price as any)[newPrice]}
             </Link>
           </div>
         </div>
